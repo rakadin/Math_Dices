@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageActivity"
+    android:background="@drawable/gradient_background">
+    <ImageView
+        android:src="@drawable/app_name"
+        android:scaleType="centerCrop"
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_percent="0.59"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/chicken"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintWidth_percent="0.15"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/spark"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/gifImageView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/gifImageView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintWidth_percent="0.15"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/spark"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintWidth_percent="0.15"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="64dp"
+        android:src="@drawable/spark"
+        app:layout_constraintBottom_toTopOf="@+id/slide"
+        app:layout_constraintEnd_toStartOf="@+id/gifImageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812" />
+
+    <ImageButton
+        android:id="@+id/chicken"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/gradient1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cardbut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/slide"
+        app:layout_constraintHeight_percent="0.45"
+        app:layout_constraintStart_toEndOf="@+id/fishcatch"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505"
+        app:layout_constraintWidth_percent="0.21"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/eggcatch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/gradient1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/eggsbut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.20"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.322"
+        app:layout_constraintWidth_percent="0.30" />
+
+    <ImageButton
+        android:id="@+id/cardch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.20"
+        app:layout_constraintWidth_percent="0.30"
+        android:background="@drawable/gradient1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/chickenbut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slide"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <ImageButton
+        android:id="@+id/fishcatch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.20"
+        app:layout_constraintWidth_percent="0.30"
+        android:background="@drawable/gradient1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fishingbut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eggcatch"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <ImageButton
+        android:id="@+id/slide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/gradient1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/slidebut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.20"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.322"
+        app:layout_constraintWidth_percent="0.30" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintWidth_percent="0.2"
+        android:src="@drawable/sun"
+        app:layout_constraintBottom_toTopOf="@+id/slide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintWidth_percent="0.2"
+        android:src="@drawable/bmo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/SonoffBut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sound_on"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintWidth_percent="0.07"
+        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011"
+        />
+</android.support.constraint.ConstraintLayout>

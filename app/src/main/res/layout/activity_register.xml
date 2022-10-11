@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@drawable/gradient1">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="@color/black"
+        android:textSize="65dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.009" />
+
+    <ImageView
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/gradient_background"
+        android:cropToPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.78"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.923"
+        app:layout_constraintWidth_percent="1" />
+
+    <EditText
+        android:id="@+id/edtpassenter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="13dp"
+        android:hint="Mật khẩu"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/edtname"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <EditText
+        android:id="@+id/edtname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Tên đăng nhập"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.043"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <EditText
+        android:id="@+id/edtrepass"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Nhập lại mật khẩu"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/edtpassenter"
+        app:layout_constraintVertical_bias="0.081"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <Button
+
+        android:id="@+id/loginbackbut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/botron_goc"
+        android:text="Đăng ký"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/edtrepass"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã có tài khoản ?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/loginbackbut"
+        app:layout_constraintVertical_bias="0.438" />
+
+    <TextView
+        android:id="@+id/loginbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/loginbackbut"
+        app:layout_constraintVertical_bias="0.438" />
+
+    <ImageButton
+        android:id="@+id/soundbut"
+        android:src="@drawable/sound_on"
+        android:layout_width="0dp"
+        android:scaleType="centerCrop"
+        android:background="@null"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033"
+        app:layout_constraintWidth_percent="0.09" />
+</android.support.constraint.ConstraintLayout>
