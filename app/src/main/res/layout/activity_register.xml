@@ -32,57 +32,111 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.78"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.923"
+        app:layout_constraintVertical_bias="1.0"
         app:layout_constraintWidth_percent="1" />
 
-    <EditText
-        android:id="@+id/edtpassenter"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="13dp"
-        android:hint="Mật khẩu"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHeight_percent="0.14"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edtname"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_percent="0.5" />
-
-    <EditText
-        android:id="@+id/edtname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:hint="Tên đăng nhập"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHeight_percent="0.14"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.043"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintVertical_bias="0.098"
+        app:layout_constraintWidth_percent="0.45"
+        android:textColorHint="@color/white"
+        android:hint="Tên đăng nhập">
+        <EditText
+            android:textSize="15dp"
+            android:id="@+id/edtname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <EditText
-        android:id="@+id/edtrepass"
+            android:textColorHint="@color/white" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:hint="Nhập lại mật khẩu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintVertical_bias="0.028"
+        app:layout_constraintWidth_percent="0.45"
         android:textColorHint="@color/white"
+        app:passwordToggleEnabled="true"
+        app:counterMaxLength="20">
+        <EditText
+
+            android:textSize="15dp"
+            android:id="@+id/edtpassenter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintVertical_bias="0.028"
+        app:layout_constraintWidth_percent="0.45"
+        android:textColorHint="@color/white"
+        app:passwordToggleEnabled="true"
+        app:counterMaxLength="20">
+
+        <EditText
+            android:textSize="15dp"
+            android:inputType="textPassword"
+            android:id="@+id/edtrepass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Nhập lại mật khẩu" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã có tài khoản ?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHeight_percent="0.14"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edtpassenter"
-        app:layout_constraintVertical_bias="0.081"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/loginbackbut"
+        app:layout_constraintVertical_bias="0.268" />
+
+    <TextView
+        android:id="@+id/loginbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/loginbackbut"
+        app:layout_constraintVertical_bias="0.272" />
 
     <Button
 
@@ -97,37 +151,9 @@
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edtrepass"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+        app:layout_constraintVertical_bias="0.11"
         app:layout_constraintWidth_percent="0.2" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đã có tài khoản ?"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/loginbackbut"
-        app:layout_constraintVertical_bias="0.438" />
-
-    <TextView
-        android:id="@+id/loginbut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.029"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/loginbackbut"
-        app:layout_constraintVertical_bias="0.438" />
 
     <ImageButton
         android:id="@+id/soundbut"

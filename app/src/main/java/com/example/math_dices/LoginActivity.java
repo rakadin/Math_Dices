@@ -19,6 +19,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        /*
+        them database
+         */
         // get IDs
         soundbut = findViewById(R.id.soundbut);
         loginbut = findViewById(R.id.loginbut);
