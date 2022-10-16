@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <item
+
+                android:id="@+id/usersetting"
+                android:title="Người dùng"
+                android:icon="@drawable/setting_icon"
+                />
+            <item
+
+                android:id="@+id/total"
+                android:title="Bảng xếp hạng"
+                android:icon="@drawable/setting_icon"/>
+            <item
+
+                android:id="@+id/logout"
+                android:title="Đăng xuất"
+                android:icon="@drawable/setting_icon"/>
+
+</menu>

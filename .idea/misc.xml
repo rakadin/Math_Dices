@@ -7,10 +7,11 @@
         <entry key="..\:/android_projects/app/src/main/res/drawable-v24/gradient_background_game2.xml" value="0.266" />
         <entry key="..\:/android_projects/app/src/main/res/drawable/botron_goc.xml" value="0.1565" />
         <entry key="..\:/android_projects/app/src/main/res/drawable/gradient_login.xml" value="0.266" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_home_page.xml" value="0.4" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/android_projects/app/src/main/res/menu/menu_action.xml" value="0.275" />
       </map>
     </option>
   </component>
