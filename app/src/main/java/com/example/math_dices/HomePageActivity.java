@@ -80,7 +80,7 @@ public class HomePageActivity extends AppCompatActivity {
     {
         PopupMenu popupMenu = new PopupMenu(this,actionMenuView);
         popupMenu.getMenuInflater().inflate(R.menu.menu_action,popupMenu.getMenu());
-         popupMenu.setForceShowIcon(true);
+//         popupMenu.setForceShowIcon(true);
         popupMenu.show();
     }
     @Override
