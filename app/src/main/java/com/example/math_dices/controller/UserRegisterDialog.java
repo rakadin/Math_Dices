@@ -64,7 +64,7 @@ public class UserRegisterDialog {
                     { // đăng ký thành công
                         // set du lieu cho user moi
                         users.setUsername(user);
-                        users.setDob(null);
+                        users.setDob("00/00/0000");
                         users.setName(user);
                         users.setPassword(pass1);
                         userDAO.insertUser(users);
