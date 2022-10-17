@@ -1,39 +1,32 @@
 package com.example.math_dices;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ActionMenuView;
 import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.math_dices.controller.SettingDialog;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.sqlite.ArchivementDAO;
+import com.example.math_dices.sqlite.UserDAO;
 
 public class HomePageActivity extends AppCompatActivity {
+    int ID;
     ImageButton actionMenuView;
     ImageButton card_gamebut;
     ImageButton soundbut;
-    TextView trophynum;
     SoundControll soundControll = new SoundControll();
-
-//    //thêm context menu -> long press
-//    @Override
-//    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//
-//        super.onCreateContextMenu(menu, v, menuInfo);
-//        if(v == actionMenuView)
-//        {
-//            menu.setHeaderTitle("Cài đặt");
-//            menu.setHeaderIcon(R.drawable.setting_icon);
-//            getMenuInflater().inflate(R.menu.menu_action,menu);
-//        }
-//    }
+    Dialog dialog;// tham số mở pop up view
 
 
 
@@ -42,20 +35,19 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         getSupportActionBar().hide();
+        dialog = new Dialog(this);
         //get id
         soundbut = findViewById(R.id.SonoffBut);
         card_gamebut = findViewById(R.id.chicken);
-        trophynum = findViewById(R.id.trophynum);
         actionMenuView = findViewById(R.id.actionMenuView);
 
         soundControll.OnOffFun(HomePageActivity.this,soundbut);// chay nhac nen
         Intent intent = getIntent();
-        int ID = intent.getIntExtra("uID",0);
+        ID = intent.getIntExtra("uID",0);
+
         ArchivementDAO archivementDAO = new ArchivementDAO(this);
 //        registerForContextMenu(actionMenuView);// gọi view vào menu button
-        int trophy = archivementDAO.returnTrophy(ID);// lấy số cúp trong data
-        // set cúp cho trophynum
-        trophynum.setText(""+trophy);
+
         /*
         set chuc nang cho nut choi game
          */
@@ -64,7 +56,6 @@ public class HomePageActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String cmt = archivementDAO.returnCMT(ID);
-                Toast.makeText(HomePageActivity.this,"số cúp "+trophy+"-"+cmt+"-",Toast.LENGTH_LONG).show();
             }
         });
         // set sự kiện show pop up menu
@@ -78,9 +69,28 @@ public class HomePageActivity extends AppCompatActivity {
     // sự kiện pop up menu
     private void showPopup()
     {
+        SettingDialog settingDialog = new SettingDialog();
         PopupMenu popupMenu = new PopupMenu(this,actionMenuView);
         popupMenu.getMenuInflater().inflate(R.menu.menu_action,popupMenu.getMenu());
 //         popupMenu.setForceShowIcon(true);
+        Context context = HomePageActivity.this; // khai báo để truyền context vào trong
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.usersetting:
+                        settingDialog.user_setting(dialog,context,ID);
+                        break;
+                    case R.id.total:
+                        break;
+                    case R.id.logout:
+                        settingDialog.logout_func(context);
+                        break;
+                }
+                return false;
+            }
+        });
         popupMenu.show();
     }
     @Override

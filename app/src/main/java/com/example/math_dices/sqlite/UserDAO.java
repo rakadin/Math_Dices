@@ -63,4 +63,24 @@ public class UserDAO {
         String pass = cursor.getString(0);
         return pass;
     }
+    /*
+  trả về name theo id
+   */
+    public String returnname(int s)
+    {
+        Cursor cursor =  db.rawQuery("SELECT name FROM User where id = ?", new String[]{String.valueOf(s)});
+        cursor.moveToNext();
+        String name = cursor.getString(0);
+        return name;
+    }
+    /*
+trả về ngay sinh theo id
+*/
+    public String returndob(int s)
+    {
+        Cursor cursor =  db.rawQuery("SELECT dob FROM User where id = ?", new String[]{String.valueOf(s)});
+        cursor.moveToNext();
+        String name = cursor.getString(0);
+        return name;
+    }
 }
