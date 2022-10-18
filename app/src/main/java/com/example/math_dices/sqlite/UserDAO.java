@@ -83,4 +83,35 @@ trả về ngay sinh theo id
         String name = cursor.getString(0);
         return name;
     }
+    /*
+trả về pass theo id
+*/
+    public String returnPass_ID(int s)
+    {
+        Cursor cursor =  db.rawQuery("SELECT password FROM User where id = ?", new String[]{String.valueOf(s)});
+        cursor.moveToNext();
+        String name = cursor.getString(0);
+        return name;
+    }
+    /*
+    set name by id
+     */
+    public void setNameByID(String name,int id)
+    {
+        db.execSQL("UPDATE User SET name = ? where id = ?", new String[]{name,String.valueOf(id)});
+    }
+    /*
+  set date of birth by id
+   */
+    public void setDobByID(String name,int id)
+    {
+        db.execSQL("UPDATE User SET dob = ? where id = ?", new String[]{name,String.valueOf(id)});
+    }
+    /*
+    set mật khẩu mới bởi id
+     */
+    public void setNewPassByID(String pass,int id)
+    {
+        db.execSQL("UPDATE User SET password = ? where id = ?", new String[]{pass,String.valueOf(id)});
+    }
 }
