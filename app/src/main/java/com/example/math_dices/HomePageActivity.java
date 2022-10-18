@@ -83,6 +83,7 @@ public class HomePageActivity extends AppCompatActivity {
                         settingDialog.user_setting(dialog,context,ID);
                         break;
                     case R.id.total:
+                        settingDialog.total_setting(dialog,context,ID);
                         break;
                     case R.id.logout:
                         settingDialog.logout_func(context);

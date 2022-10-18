@@ -10,13 +10,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.math_dices.LoginActivity;
 import com.example.math_dices.R;
+import com.example.math_dices.adapter.ArchivementAdapter;
+import com.example.math_dices.model.TotalArchivement;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
+
+import java.util.ArrayList;
+import java.util.Comparator;
 
 /*
 class này dùng để quản lý sự kiện dialog khi click vao items trong pop up menu setting
@@ -26,6 +32,10 @@ public class SettingDialog {
     private int trophy;
     private String dob;
     private String pass;
+    ArrayList<TotalArchivement> listProduct = new ArrayList<TotalArchivement>();
+    TotalArchivement totalArchivement;
+    ArchivementAdapter adapter;
+    ListView listViewArchive;
     /*
     khi click vao logout but trong pop up menu
      */
@@ -135,12 +145,25 @@ public class SettingDialog {
                                         txt2 = dialog.findViewById(R.id.txtdob);
                                         txt1 = dialog.findViewById(R.id.profile_uname);
                                         txt3 = dialog.findViewById(R.id.txttrophy);
-                                        txt1.setText(edt1.getText().toString());
-                                        txt2.setText(edt2.getText().toString());
-                                        txt3.setText(""+trophy);
-                                        userDAO.setNameByID(edt1.getText().toString(),id); // set dữ liệu vào data
-                                        userDAO.setDobByID(edt2.getText().toString(),id);// set dob vào data
-                                        Toast.makeText(context,"Cập nhật thông tin thành công",Toast.LENGTH_SHORT).show();
+                                        txt1.setText(name);
+                                        txt2.setText(dob);
+                                        boolean check = userDAO.checkname(edt1.getText().toString());
+                                        if(check == true)
+                                        {
+                                            Toast.makeText(context,"Tên này đã có người dùng",Toast.LENGTH_SHORT).show();
+                                            edt1.setError("Lỗi");
+                                            dialog.dismiss();
+                                        }
+                                        else
+                                        {
+                                            txt1.setText(edt1.getText().toString());
+                                            txt2.setText(edt2.getText().toString());
+                                            txt3.setText(""+trophy);
+                                            userDAO.setNameByID(edt1.getText().toString(),id); // set dữ liệu vào data
+                                            userDAO.setDobByID(edt2.getText().toString(),id);// set dob vào data
+                                            Toast.makeText(context,"Cập nhật thông tin thành công",Toast.LENGTH_SHORT).show();
+
+                                        }
                                         ImageButton butx = dialog.findViewById(R.id.xBut);
                                         xButOut(butx,dialog);
                                     }
@@ -185,10 +208,45 @@ public class SettingDialog {
     /*
     khi click vào bảng xếp hạng
      */
-    public void total_setting(Context context)
+    public void total_setting(Dialog dialog,Context context,int id)
     {
-        Intent intent = new Intent(context, LoginActivity.class);
-        context.startActivity(intent);
+        dialog.setContentView(R.layout.archivement_total);
+        listViewArchive = dialog.findViewById(R.id.list_item);
+        UserDAO userDAO = new UserDAO(context);
+        userDAO.getArchive(listProduct);// lấy data vào arraylist
+        adapter = new ArchivementAdapter(listProduct);// khởi tạo adapter
+        name = userDAO.returnname(id);
+        adapter.named = name;
+        listViewArchive.setAdapter(adapter);
+        ImageButton xbut = dialog.findViewById(R.id.xBut);
+        Button maxBut = dialog.findViewById(R.id.sort1);
+        Button minBut = dialog.findViewById(R.id.sort3);
+        xButOut(xbut,dialog);
+        // sort dữ liệu theo nhiều cup nhất
+        maxBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listProduct.sort((Comparator.comparingDouble(TotalArchivement::getTrophy).reversed()));
+                for(int i=0;i<listProduct.size();i++) // cập nhật lại thứ tự ID trong arraylist
+                {
+                    listProduct.get(i).setID(i+1);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
+        // sort dữ liệu theo ít cúp nhất
+        minBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listProduct.sort((Comparator.comparingDouble(TotalArchivement::getTrophy)));
+                for(int i=0;i<listProduct.size();i++) // cập nhật lại thứ tự ID
+                {
+                    listProduct.get(i).setID(i+1);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
+        dialog.show();
     }
 
     /*

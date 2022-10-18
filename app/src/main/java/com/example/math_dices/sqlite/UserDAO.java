@@ -6,7 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.math_dices.database.AppData;
+import com.example.math_dices.model.TotalArchivement;
 import com.example.math_dices.model.Users;
+
+import java.util.ArrayList;
 
 public class UserDAO {
     private SQLiteDatabase db;
@@ -35,6 +38,20 @@ public class UserDAO {
     public boolean checkuser(String s)
     {
         Cursor cursor =  db.rawQuery("SELECT * FROM User where username = ?", new String[]{String.valueOf(s)});
+        if(cursor.getCount() == 0)
+        {
+            return false;
+
+        }
+        else return true;
+
+    }
+    /*
+validate đã có tên người dùng chưa đã có chưa
+ */
+    public boolean checkname(String s)
+    {
+        Cursor cursor =  db.rawQuery("SELECT * FROM User where name = ?", new String[]{String.valueOf(s)});
         if(cursor.getCount() == 0)
         {
             return false;
@@ -113,5 +130,18 @@ trả về pass theo id
     public void setNewPassByID(String pass,int id)
     {
         db.execSQL("UPDATE User SET password = ? where id = ?", new String[]{pass,String.valueOf(id)});
+    }
+    /*
+    truy vấn name, Archivement.cmt, Archivement.trophy
+     */
+    public void getArchive(ArrayList<TotalArchivement> listProduct)
+    {
+        Cursor cursor =  db.rawQuery("SELECT name, Archivement.comment, Archivement.trophy FROM User INNER JOIN Archivement on Archivement.uID = User.id",new String[]{} );
+
+        for(int i =0;i<cursor.getCount();i++)
+        {
+            cursor.moveToNext();
+            listProduct.add(new TotalArchivement(i+1,cursor.getString(0),cursor.getString(1),cursor.getInt(2)));
+        }
     }
 }
