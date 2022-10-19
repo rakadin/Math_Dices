@@ -1,11 +1,12 @@
 package com.example.math_dices.controller;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
+//import android.support.design.widget.TextInputLayout;
+//import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,12 +18,17 @@ import android.widget.Toast;
 import com.example.math_dices.LoginActivity;
 import com.example.math_dices.R;
 import com.example.math_dices.adapter.ArchivementAdapter;
+import com.example.math_dices.firebase.Data_Controll;
+import com.example.math_dices.firebase.Send_Data_User;
 import com.example.math_dices.model.TotalArchivement;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 class này dùng để quản lý sự kiện dialog khi click vao items trong pop up menu setting
@@ -32,10 +38,8 @@ public class SettingDialog {
     private int trophy;
     private String dob;
     private String pass;
-    ArrayList<TotalArchivement> listProduct = new ArrayList<TotalArchivement>();
-    TotalArchivement totalArchivement;
-    ArchivementAdapter adapter;
-    ListView listViewArchive;
+    private Data_Controll data_controll = new Data_Controll();
+
     /*
     khi click vao logout but trong pop up menu
      */
@@ -147,7 +151,7 @@ public class SettingDialog {
                                         txt3 = dialog.findViewById(R.id.txttrophy);
                                         txt1.setText(name);
                                         txt2.setText(dob);
-                                        boolean check = userDAO.checkname(edt1.getText().toString());
+                                        boolean check = userDAO.checkname(edt1.getText().toString(),id);
                                         if(check == true)
                                         {
                                             Toast.makeText(context,"Tên này đã có người dùng",Toast.LENGTH_SHORT).show();
@@ -156,11 +160,15 @@ public class SettingDialog {
                                         }
                                         else
                                         {
+                                            Map<String,Object> map = new HashMap<>();
                                             txt1.setText(edt1.getText().toString());
                                             txt2.setText(edt2.getText().toString());
                                             txt3.setText(""+trophy);
                                             userDAO.setNameByID(edt1.getText().toString(),id); // set dữ liệu vào data
                                             userDAO.setDobByID(edt2.getText().toString(),id);// set dob vào data
+                                            map.put("name",edt1.getText().toString());// gui len firebase
+                                            map.put("dob",edt2.getText().toString());// gui len firebase
+                                            data_controll.updateStringData(map,id);// chap nhan gui
                                             Toast.makeText(context,"Cập nhật thông tin thành công",Toast.LENGTH_SHORT).show();
 
                                         }
@@ -208,16 +216,22 @@ public class SettingDialog {
     /*
     khi click vào bảng xếp hạng
      */
-    public void total_setting(Dialog dialog,Context context,int id)
+    public void total_setting(Dialog dialog,Context context,int idin)
     {
         dialog.setContentView(R.layout.archivement_total);
+        ArrayList<TotalArchivement> listProduct = new ArrayList<>();
+        ArchivementAdapter adapter;
+        ListView listViewArchive;
         listViewArchive = dialog.findViewById(R.id.list_item);
         UserDAO userDAO = new UserDAO(context);
         userDAO.getArchive(listProduct);// lấy data vào arraylist
         adapter = new ArchivementAdapter(listProduct);// khởi tạo adapter
-        name = userDAO.returnname(id);
-        adapter.named = name;
+        name = userDAO.returnname(idin);
+        adapter.id = idin; // id của người dùng hiện tại
+        Send_Data_User send = new Send_Data_User(); // lấy dữ liệu từ firebase
+
         listViewArchive.setAdapter(adapter);
+        send.updateADTData(context,adapter);// gọi sự kiện update adapter
         ImageButton xbut = dialog.findViewById(R.id.xBut);
         Button maxBut = dialog.findViewById(R.id.sort1);
         Button minBut = dialog.findViewById(R.id.sort3);
@@ -229,7 +243,7 @@ public class SettingDialog {
                 listProduct.sort((Comparator.comparingDouble(TotalArchivement::getTrophy).reversed()));
                 for(int i=0;i<listProduct.size();i++) // cập nhật lại thứ tự ID trong arraylist
                 {
-                    listProduct.get(i).setID(i+1);
+                    listProduct.get(i).setStt(i+1);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -241,7 +255,7 @@ public class SettingDialog {
                 listProduct.sort((Comparator.comparingDouble(TotalArchivement::getTrophy)));
                 for(int i=0;i<listProduct.size();i++) // cập nhật lại thứ tự ID
                 {
-                    listProduct.get(i).setID(i+1);
+                    listProduct.get(i).setStt(i+1);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -264,7 +278,7 @@ public class SettingDialog {
     /*
     chuc nang doi mat khẩu
      */
-    public void change_pass(Context context,TextInputLayout til1,TextInputLayout til2,TextInputLayout til3,EditText edt1,EditText edt2,EditText edt3,Dialog dialog, int id)
+    public void change_pass(Context context, TextInputLayout til1, TextInputLayout til2, TextInputLayout til3, EditText edt1, EditText edt2, EditText edt3, Dialog dialog, int id)
     {
         String edtin1 = edt1.getText().toString();
         String edtin2 = edt2.getText().toString();
@@ -315,6 +329,10 @@ public class SettingDialog {
                     if(edtin2.length()>6 && edtin2.equals(edtin1) == false) // thỏa mãn tất cả điều kiện
                     {
                         UserDAO userDAO = new UserDAO(context);
+                        Map<String, Object> map = new HashMap<>();
+                        Data_Controll data_controll = new Data_Controll();
+                        map.put("password",edtin2);
+                        data_controll.updateStringData(map,id);
                         userDAO.setNewPassByID(edtin2,id);
                         Toast.makeText(context,"Thay đổi mật khẩu thành công",Toast.LENGTH_SHORT).show();
                         dialog.dismiss();

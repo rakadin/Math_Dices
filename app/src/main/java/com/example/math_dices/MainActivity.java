@@ -1,11 +1,13 @@
 package com.example.math_dices;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.controller.Utils;

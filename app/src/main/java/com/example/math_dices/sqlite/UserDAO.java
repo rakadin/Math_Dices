@@ -25,12 +25,38 @@ public class UserDAO {
     public long insertUser(Users users) // them user mới -> đăng ký
     {
         ContentValues values = new ContentValues();// tạo values
-        values.put("name", users.getName());
-        values.put("username", users.getUsername());
-        values.put("password", users.getPassword());
-        values.put("dob", "00/00/0000");
-        return  db.insert("User",null, values);// gửi value kia vào database
-
+        if(checkuser(users.getUsername()) == false)
+        {
+                values.put("name", users.getName());
+                values.put("username", users.getUsername());
+                values.put("password", users.getPassword());
+                values.put("dob", users.getDob());
+            return  db.insert("User",null, values);// gửi value kia vào database
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    /*
+thêm user mới nào DB
+ */
+    public long insertUserFromFB(Users users) // them user mới -> đăng ký
+    {
+        ContentValues values = new ContentValues();// tạo values
+        if(checkuser(users.getUsername()) == false)
+        {
+            values.put("id",users.getId());
+            values.put("name", users.getName());
+            values.put("username", users.getUsername());
+            values.put("password", users.getPassword());
+            values.put("dob", users.getDob());
+            return  db.insert("User",null, values);// gửi value kia vào database
+        }
+        else
+        {
+            return 0;
+        }
     }
     /*
     validate user đã có chưa
@@ -49,16 +75,20 @@ public class UserDAO {
     /*
 validate đã có tên người dùng chưa đã có chưa
  */
-    public boolean checkname(String s)
+    public boolean checkname(String s,int id)
     {
-        Cursor cursor =  db.rawQuery("SELECT * FROM User where name = ?", new String[]{String.valueOf(s)});
+        Cursor cursor =  db.rawQuery("SELECT id,name FROM User where name = ?", new String[]{String.valueOf(s)});
+        cursor.moveToNext();
         if(cursor.getCount() == 0)
         {
             return false;
 
         }
+        else if(cursor.getInt(0) ==id) // có id trùng người dùng hiện tại thì ok
+        {
+            return false;
+        }
         else return true;
-
     }
     /*
     trả về ID theo username
@@ -132,16 +162,23 @@ trả về pass theo id
         db.execSQL("UPDATE User SET password = ? where id = ?", new String[]{pass,String.valueOf(id)});
     }
     /*
-    truy vấn name, Archivement.cmt, Archivement.trophy
+    truy vấn id name, Archivement.cmt, Archivement.trophy
      */
     public void getArchive(ArrayList<TotalArchivement> listProduct)
     {
-        Cursor cursor =  db.rawQuery("SELECT name, Archivement.comment, Archivement.trophy FROM User INNER JOIN Archivement on Archivement.uID = User.id",new String[]{} );
+        Cursor cursor =  db.rawQuery("SELECT id,name, Archivement.comment, Archivement.trophy FROM User INNER JOIN Archivement on Archivement.uID = User.id",new String[]{} );
 
         for(int i =0;i<cursor.getCount();i++)
         {
             cursor.moveToNext();
-            listProduct.add(new TotalArchivement(i+1,cursor.getString(0),cursor.getString(1),cursor.getInt(2)));
+            listProduct.add(new TotalArchivement(i+1,cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3)));
         }
+    }
+    /*
+   delete all rows
+    */
+    public void deleteTable()
+    {
+        db.execSQL("DELETE FROM User ", new String[]{});
     }
 }

@@ -2,26 +2,29 @@ package com.example.math_dices.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.TextInputLayout;
+//import android.support.design.widget.TextInputLayout;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.math_dices.LoginActivity;
+import com.example.math_dices.firebase.Data_Controll;
+import com.example.math_dices.firebase.Send_Data_User;
 import com.example.math_dices.model.Archivement;
 import com.example.math_dices.model.Users;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Date;
 
 public class UserRegisterDialog {
-
-    public void checkuser(EditText usname, Context context, EditText pass, EditText repass, TextInputLayout til1,TextInputLayout til2,TextInputLayout til3){
+    Data_Controll data_controll = new Data_Controll();
+    public void checkuser(EditText usname, Context context, EditText pass, EditText repass, TextInputLayout til1, TextInputLayout til2, TextInputLayout til3){
         Users users = new Users();
         Archivement archivement = new Archivement();
-        String user =  usname.getText().toString();
-        String pass1 =  pass.getText().toString();
-        String repass1 =  repass.getText().toString();
+        String user =  usname.getText().toString().trim();
+        String pass1 =  pass.getText().toString().trim();
+        String repass1 =  repass.getText().toString().trim();
         UserDAO userDAO = new UserDAO(context);
         ArchivementDAO archivementDAO = new ArchivementDAO(context);
 
@@ -68,6 +71,11 @@ public class UserRegisterDialog {
                         users.setName(user);
                         users.setPassword(pass1);
                         userDAO.insertUser(users);
+                        /*
+                        gửi dữ liệu vào firebase
+                         */
+                        Send_Data_User send = new Send_Data_User();
+                        send.registerNewUser(user,user,pass1,"00/00/0000","",0,userDAO.returnID(user));
                         // them archive khi khởi tạo
                         int id = userDAO.returnID(user);
                         archivement.setuID(id);

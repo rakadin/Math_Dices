@@ -1,11 +1,14 @@
 package com.example.math_dices.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+//import android.support.annotation.NonNull;
+//import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.math_dices.R;
 import com.example.math_dices.model.TotalArchivement;
@@ -14,7 +17,7 @@ import java.util.ArrayList;
 
 public class ArchivementAdapter extends BaseAdapter {
     //Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
-    public String named ="";
+    public int id ;
     final ArrayList<TotalArchivement> listProduct;
 
     public ArchivementAdapter(ArrayList<TotalArchivement> listProduct) {
@@ -53,9 +56,9 @@ public class ArchivementAdapter extends BaseAdapter {
 
         //Bind sữ liệu phần tử vào View
         TotalArchivement total = (TotalArchivement) getItem(position);
-        ((TextView) viewProduct.findViewById(R.id.stt)).setText( Integer.toString(total.ID));
+        ((TextView) viewProduct.findViewById(R.id.stt)).setText( Integer.toString(total.getStt()));
         ((TextView) viewProduct.findViewById(R.id.lvname)).setText( total.name);
-
+        int temID = total.getID();
         String comment =total.cmt;
         if(comment.equals(""))
         {
@@ -63,11 +66,11 @@ public class ArchivementAdapter extends BaseAdapter {
         }
         ((TextView) viewProduct.findViewById(R.id.lvcmt)).setText( comment);
         ((TextView) viewProduct.findViewById(R.id.lvtrophy)).setText(Integer.toString(total.trophy));
-        if(total.name.equals(named)) // nếu người dùng hiện tại trùng thì làm nổi bật
+        if(temID == id) // nếu người dùng hiện tại trùng thì làm nổi bật
         {
             viewProduct.setBackgroundColor(R.drawable.gradient_background);
         }
-        else if(total.name.equals(named) == false) // không thì xóa background
+        else if(temID != id) // không thì xóa background
         {
             viewProduct.setBackgroundColor(0);
         }
