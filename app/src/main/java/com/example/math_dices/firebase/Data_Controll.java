@@ -9,6 +9,7 @@ import com.example.math_dices.model.Archivement;
 import com.example.math_dices.model.Users;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +31,13 @@ public class Data_Controll {
         myRef2.setValue(map);
         map.clear();
 
+    }
+    // cập nhật dữ liệu theo string nào đó
+    public void updateStringData(Map<String,Object> map,int id)
+    {
+        DatabaseReference myRef2 = database.getReference("User/"+id);
+        myRef2.updateChildren(map);
+        map.clear();
     }
     /*
     nếu có data mới được push online thì luôn cập nhật
@@ -64,11 +72,22 @@ public class Data_Controll {
                         userDAO.insertUserFromFB(users);
                         archivementDAO.insertArchiveFromFB(ar,Integer.valueOf(arr.get(i).getID()));
                 }
-
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) { // khi dữ liệu online bị thay đổi
+                int id = Integer.valueOf(dataSnapshot.child("ID").getValue().toString());
+                String comment = dataSnapshot.child("comment").getValue().toString();
+                String name = dataSnapshot.child("name").getValue().toString();
+                String trophy = dataSnapshot.child("trophy").getValue().toString();
+                String dob = dataSnapshot.child("dob").getValue().toString();
+                String password = dataSnapshot.child("password").getValue().toString();
+                userDAO.setDobByID(dob,id);
+                userDAO.setNewPassByID(password,id);
+                userDAO.setNameByID(name,id);
+                archivementDAO.setcmtByID(trophy,id);
+                archivementDAO.setcmtByID(comment,id);
+            }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {}

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.math_dices.LoginActivity;
 import com.example.math_dices.R;
 import com.example.math_dices.adapter.ArchivementAdapter;
+import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.firebase.Send_Data_User;
 import com.example.math_dices.model.TotalArchivement;
 import com.example.math_dices.sqlite.ArchivementDAO;
@@ -26,6 +27,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 class này dùng để quản lý sự kiện dialog khi click vao items trong pop up menu setting
@@ -35,6 +38,7 @@ public class SettingDialog {
     private int trophy;
     private String dob;
     private String pass;
+    private Data_Controll data_controll = new Data_Controll();
 
     /*
     khi click vao logout but trong pop up menu
@@ -147,7 +151,7 @@ public class SettingDialog {
                                         txt3 = dialog.findViewById(R.id.txttrophy);
                                         txt1.setText(name);
                                         txt2.setText(dob);
-                                        boolean check = userDAO.checkname(edt1.getText().toString());
+                                        boolean check = userDAO.checkname(edt1.getText().toString(),id);
                                         if(check == true)
                                         {
                                             Toast.makeText(context,"Tên này đã có người dùng",Toast.LENGTH_SHORT).show();
@@ -156,11 +160,15 @@ public class SettingDialog {
                                         }
                                         else
                                         {
+                                            Map<String,Object> map = new HashMap<>();
                                             txt1.setText(edt1.getText().toString());
                                             txt2.setText(edt2.getText().toString());
                                             txt3.setText(""+trophy);
                                             userDAO.setNameByID(edt1.getText().toString(),id); // set dữ liệu vào data
                                             userDAO.setDobByID(edt2.getText().toString(),id);// set dob vào data
+                                            map.put("name",edt1.getText().toString());// gui len firebase
+                                            map.put("dob",edt2.getText().toString());// gui len firebase
+                                            data_controll.updateStringData(map,id);// chap nhan gui
                                             Toast.makeText(context,"Cập nhật thông tin thành công",Toast.LENGTH_SHORT).show();
 
                                         }
@@ -321,6 +329,10 @@ public class SettingDialog {
                     if(edtin2.length()>6 && edtin2.equals(edtin1) == false) // thỏa mãn tất cả điều kiện
                     {
                         UserDAO userDAO = new UserDAO(context);
+                        Map<String, Object> map = new HashMap<>();
+                        Data_Controll data_controll = new Data_Controll();
+                        map.put("password",edtin2);
+                        data_controll.updateStringData(map,id);
                         userDAO.setNewPassByID(edtin2,id);
                         Toast.makeText(context,"Thay đổi mật khẩu thành công",Toast.LENGTH_SHORT).show();
                         dialog.dismiss();

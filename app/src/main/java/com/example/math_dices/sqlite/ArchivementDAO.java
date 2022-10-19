@@ -79,6 +79,20 @@ validate đã có id người dùng trong table chưa
         return cmt;
     }
     /*
+ set date of birth by id
+  */
+    public void setcmtByID(String name,int id)
+    {
+        DB.execSQL("UPDATE Archivement SET comment = ? where uID = ?", new String[]{name,String.valueOf(id)});
+    }
+    /*
+set date of birth by id
+*/
+    public void settrophyByID(String name,int id)
+    {
+        DB.execSQL("UPDATE Archivement SET trophy = ? where uID = ?", new String[]{name,String.valueOf(id)});
+    }
+    /*
 delete all rows
 */
     public void deleteTable()

@@ -75,13 +75,18 @@ thêm user mới nào DB
     /*
 validate đã có tên người dùng chưa đã có chưa
  */
-    public boolean checkname(String s)
+    public boolean checkname(String s,int id)
     {
-        Cursor cursor =  db.rawQuery("SELECT * FROM User where name = ?", new String[]{String.valueOf(s)});
+        Cursor cursor =  db.rawQuery("SELECT id,name FROM User where name = ?", new String[]{String.valueOf(s)});
+        cursor.moveToNext();
         if(cursor.getCount() == 0)
         {
             return false;
 
+        }
+        else if(cursor.getInt(0) ==id) // có id trùng người dùng hiện tại thì ok
+        {
+            return false;
         }
         else return true;
     }
