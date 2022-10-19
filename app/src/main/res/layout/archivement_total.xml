@@ -56,10 +56,10 @@
         android:layout_height="25dp"
         android:background="@drawable/botron_2"
         android:text="Nhiều cúp nhất"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.04" />
@@ -70,7 +70,7 @@
         android:layout_height="25dp"
         android:background="@drawable/botron_2"
         android:text="Ít cúp nhất"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
@@ -80,6 +80,7 @@
 
 
     <ListView
+
         android:id="@+id/list_item"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -100,6 +101,8 @@
         android:background="@color/white"
         android:gravity="center"
         android:text="STT"
+        android:textSize="10sp"
+        android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +114,8 @@
         app:layout_constraintWidth_percent="0.14" />
 
     <TextView
+        android:textSize="10sp"
+        android:textStyle="bold"
         android:id="@+id/textView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -129,6 +134,8 @@
         app:layout_constraintWidth_percent="0.27" />
 
     <TextView
+        android:textSize="10sp"
+        android:textStyle="bold"
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -147,6 +154,8 @@
         app:layout_constraintWidth_percent="0.3" />
 
     <TextView
+        android:textSize="10sp"
+        android:textStyle="bold"
         android:id="@+id/textView7"
         android:layout_width="0dp"
         android:layout_height="0dp"

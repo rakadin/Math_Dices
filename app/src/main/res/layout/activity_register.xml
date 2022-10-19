@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
     android:background="@drawable/gradient1">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="250dp"
@@ -14,14 +15,14 @@
         android:gravity="center"
         android:text="Register"
         android:textColor="@color/black"
-        android:textSize="65dp"
+        android:textSize="40dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.009" />
+        app:layout_constraintVertical_bias="0.033" />
 
     <ImageView
         android:id="@+id/view"
@@ -31,7 +32,7 @@
         android:cropToPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.78"
+        app:layout_constraintHeight_percent="0.83"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -42,31 +43,33 @@
         android:id="@+id/textInputLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:hint="Tên đăng nhập"
+        android:textColorHint="@color/white"
+        app:hintTextAppearance="@style/Hint_Size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHeight_percent="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.098"
-        app:layout_constraintWidth_percent="0.45"
-        android:textColorHint="@color/white"
-        android:hint="Tên đăng nhập">
+        app:layout_constraintVertical_bias="0.069"
+        app:layout_constraintWidth_percent="0.45">
+
         <EditText
-            android:textSize="15dp"
             android:id="@+id/edtname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textSize="15dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        app:hintTextAppearance="@style/Hint_Size"
         android:id="@+id/textInputLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHeight_percent="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:layout_constraintVertical_bias="0.028"
@@ -86,12 +89,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        app:hintTextAppearance="@style/Hint_Size"
         android:id="@+id/textInputLayout4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHeight_percent="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
         app:layout_constraintVertical_bias="0.028"
@@ -116,7 +120,7 @@
         android:layout_height="wrap_content"
         android:text="Đã có tài khoản ?"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.427"
@@ -130,7 +134,7 @@
         android:layout_height="wrap_content"
         android:text="Đăng nhập"
         android:textColor="@color/purple_700"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.025"
@@ -145,10 +149,10 @@
         android:layout_height="0dp"
         android:background="@drawable/botron_goc"
         android:text="Đăng ký"
-        android:textSize="18dp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
@@ -159,7 +163,7 @@
         android:id="@+id/soundbut"
         android:src="@drawable/sound_on"
         android:layout_width="0dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:background="@null"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
