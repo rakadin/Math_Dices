@@ -1,8 +1,8 @@
 package com.example.math_dices;
 
 import android.content.Intent;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.design.widget.TextInputLayout;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,8 +10,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.math_dices.controller.LoginDialog;
 import com.example.math_dices.controller.SoundControll;
+import com.example.math_dices.firebase.Send_Data_User;
+import com.example.math_dices.sqlite.ArchivementDAO;
+import com.example.math_dices.sqlite.UserDAO;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
     TextView registerTxt;
@@ -24,6 +30,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        UserDAO userDAO = new UserDAO(this);
+        ArchivementDAO ar = new ArchivementDAO(this);
+//        userDAO.deleteTable();
+//        ar.deleteTable();
+        Send_Data_User send = new Send_Data_User();
+        send.getNewIDData(this); // lấy dữ liệu theo thời gian thực
         /*
         them database
          */

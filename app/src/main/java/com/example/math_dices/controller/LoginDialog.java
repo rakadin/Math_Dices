@@ -2,7 +2,7 @@ package com.example.math_dices.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.TextInputLayout;
+//import android.support.design.widget.TextInputLayout;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -12,13 +12,14 @@ import com.example.math_dices.model.Archivement;
 import com.example.math_dices.model.Users;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginDialog {
     public void validate(EditText usname, Context context, EditText pass, TextInputLayout til1, TextInputLayout til2)
     {
         Users users = new Users();
-        String user =  usname.getText().toString();
-        String pass1 =  pass.getText().toString();
+        String user =  usname.getText().toString().trim();
+        String pass1 =  pass.getText().toString().trim();
 
         // gọi data
         UserDAO userDAO = new UserDAO(context);

@@ -3,9 +3,9 @@ package com.example.math_dices;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ActionMenuView;
+//import android.support.v7.widget.ActionMenuView;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,10 +15,21 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.math_dices.controller.SettingDialog;
 import com.example.math_dices.controller.SoundControll;
+import com.example.math_dices.firebase.Data_Controll;
+import com.example.math_dices.firebase.Send_Data_User;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomePageActivity extends AppCompatActivity {
     int ID;
@@ -35,6 +46,8 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         getSupportActionBar().hide();
+        Send_Data_User send = new Send_Data_User();
+        send.getNewIDData(this); // lấy dữ liệu theo thời gian thực
         dialog = new Dialog(this);
         //get id
         soundbut = findViewById(R.id.SonoffBut);
@@ -55,7 +68,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String cmt = archivementDAO.returnCMT(ID);
+//                String cmt = archivementDAO.returnCMT(ID);
             }
         });
         // set sự kiện show pop up menu
@@ -83,8 +96,12 @@ public class HomePageActivity extends AppCompatActivity {
                         settingDialog.user_setting(dialog,context,ID);
                         break;
                     case R.id.total:
+                    {
+//                       Toast.makeText(context,"id "+ ID,Toast.LENGTH_SHORT).show();
                         settingDialog.total_setting(dialog,context,ID);
                         break;
+                    }
+
                     case R.id.logout:
                         settingDialog.logout_func(context);
                         break;

@@ -1,12 +1,14 @@
 package com.example.math_dices.model;
 
 public class TotalArchivement {
+    public int stt;
     public int ID;
     public String name;
     public String cmt;
     public int trophy;
 
-    public TotalArchivement(int ID, String name, String cmt, int trophy) {
+    public TotalArchivement(int stt, int ID, String name, String cmt, int trophy) {
+        this.stt = stt;
         this.ID = ID;
         this.name = name;
         this.cmt = cmt;
@@ -15,6 +17,14 @@ public class TotalArchivement {
 
     public int getID() {
         return ID;
+    }
+
+    public int getStt() {
+        return stt;
+    }
+
+    public void setStt(int stt) {
+        this.stt = stt;
     }
 
     public void setID(int ID) {

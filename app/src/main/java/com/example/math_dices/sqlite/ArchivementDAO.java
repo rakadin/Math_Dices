@@ -29,6 +29,36 @@ public class ArchivementDAO {
 
     }
     /*
+validate đã có id người dùng trong table chưa
+*/
+    public boolean checkuID(int s)
+    {
+        Cursor cursor =  DB.rawQuery("SELECT * FROM Archivement where uID = ?", new String[]{String.valueOf(s)});
+        if(cursor.getCount() == 0)
+        {
+            return false;
+
+        }
+        else return true;
+    }
+    /*
+ thêm archive mới nào DB khi user được tạo
+  */
+    public long insertArchiveFromFB(Archivement ar,int s) // them user mới -> đăng ký
+    {
+        if(checkuID(s)== false)
+        {
+            ContentValues values = new ContentValues();// tạo values
+            values.put("uID", ar.getuID());
+            values.put("trophy", ar.getTrophy());
+            values.put("comment", ar.getCmt());
+            return  DB.insert("Archivement",null, values);// gửi value kia vào database
+        }
+        else
+            return 0;
+
+    }
+    /*
   trả về trophy theo id
    */
     public int returnTrophy(int id)
@@ -47,5 +77,12 @@ public class ArchivementDAO {
         cursor.moveToNext();
         String cmt = cursor.getString(0);
         return cmt;
+    }
+    /*
+delete all rows
+*/
+    public void deleteTable()
+    {
+        DB.execSQL("DELETE FROM Archivement ", new String[]{});
     }
 }

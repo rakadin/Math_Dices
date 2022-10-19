@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "228711248484",
+    "firebase_url": "https://mathdice-5f3f6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mathdice-5f3f6",
+    "storage_bucket": "mathdice-5f3f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228711248484:android:2cf51ff59f4b3f1dc56571",
+        "android_client_info": {
+          "package_name": "com.example.math_dices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228711248484-uf7krl8a0b2mur53l27694pggft6245a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.math_dices",
+            "certificate_hash": "7d0d6e9ff75eaf0ea44f7f53d521f41695b71bd2"
+          }
+        },
+        {
+          "client_id": "228711248484-t97pmr5tkjugeunubhf34d0ka2hplaj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU3PzDld7ZHOimLlQ_NQED_njaags7Y4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228711248484-t97pmr5tkjugeunubhf34d0ka2hplaj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
