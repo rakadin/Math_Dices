@@ -6,10 +6,11 @@
         <entry key="..\:/android_projects/app/src/main/res/drawable-v24/gradient_background.xml" value="0.212" />
         <entry key="..\:/android_projects/app/src/main/res/drawable-v24/gradient_background_game2.xml" value="0.266" />
         <entry key="..\:/android_projects/app/src/main/res/drawable/botron_2.xml" value="0.221" />
+        <entry key="..\:/android_projects/app/src/main/res/drawable/botron_button.xml" value="0.24" />
         <entry key="..\:/android_projects/app/src/main/res/drawable/botron_goc.xml" value="0.1565" />
         <entry key="..\:/android_projects/app/src/main/res/drawable/gradient_login.xml" value="0.266" />
         <entry key="..\:/android_projects/app/src/main/res/drawable/gradient_total_back.xml" value="0.2785" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_home_page.xml" value="0.4" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_register.xml" value="0.264" />
