@@ -189,12 +189,12 @@
         android:background="@drawable/botron_goc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHeight_percent="0.12"
-        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.07"
-        app:layout_constraintWidth_percent="0.35" />
+        app:layout_constraintVertical_bias="0.066"
+        app:layout_constraintWidth_percent="0.25" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -205,7 +205,7 @@
         android:src="@drawable/calendar"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toTopOf="@+id/view3"
@@ -218,13 +218,14 @@
         android:layout_height="wrap_content"
         android:text="00/00/0000"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="13sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.583" />
 
     <Button
         android:id="@+id/changepassBut"
@@ -236,8 +237,21 @@
         android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/til3"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintTop_toBottomOf="@+id/til3" />
+
+    <Button
+        android:id="@+id/backBut"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/botron_goc"
+        android:text="Hủy"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/til3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -96,92 +96,7 @@ public class SettingDialog {
         imgbut2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // su kien alert dialog
-                AlertDialog.Builder b = new AlertDialog.Builder(context);
-                b.setTitle("Chỉnh sửa thông tin");
-                b.setIcon(R.drawable.log_out);
-                b.setMessage("Bạn muốn chỉnh sửa thông tin cá nhân ?");
-                b.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel(); // huy dialog
-                    }
-                });
-                b.setNegativeButton("Đồng ý", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialog.setContentView(R.layout.fix_user_profile);
-                        EditText tx1,tx2;
-                        TextView tx3;
-                        tx1 = dialog.findViewById(R.id.edtprofile_uname);
-                        tx2 = dialog.findViewById(R.id.edtdob);
-                        tx3 = dialog.findViewById(R.id.txttrophy);
-                        tx1.setText(name);
-                        tx2.setText(dob);
-                        tx3.setText(""+trophy);
-                        ImageButton butx = dialog.findViewById(R.id.xBut);
-                        Button done = dialog.findViewById(R.id.fix_done);
-                        xButOut(butx,dialog);
-                        // chấp nhận chỉnh sửa thông tin xong
-                        done.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                // su kien alert dialog
-                                AlertDialog.Builder b = new AlertDialog.Builder(context);
-                                b.setTitle("Hoàn tất");
-                                b.setIcon(R.drawable.log_out);
-                                b.setMessage("Hoàn tất cập nhật thông tin?");
-                                b.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.cancel(); // huy dialog
-                                    }
-                                });
-                                // đồng ý chỉnh sửa thì gửi data đi
-                                b.setNegativeButton("Đồng ý", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        EditText edt1,edt2;
-                                        edt1 = dialog.findViewById(R.id.edtprofile_uname);
-                                        edt2 = dialog.findViewById(R.id.edtdob);
-                                        dialog.setContentView(R.layout.activity_user_interface);
-                                        TextView txt1,txt2,txt3;
-                                        txt2 = dialog.findViewById(R.id.txtdob);
-                                        txt1 = dialog.findViewById(R.id.profile_uname);
-                                        txt3 = dialog.findViewById(R.id.txttrophy);
-                                        txt1.setText(name);
-                                        txt2.setText(dob);
-                                        boolean check = userDAO.checkname(edt1.getText().toString(),id);
-                                        if(check == true)
-                                        {
-                                            Toast.makeText(context,"Tên này đã có người dùng",Toast.LENGTH_SHORT).show();
-                                            edt1.setError("Lỗi");
-                                            dialog.dismiss();
-                                        }
-                                        else
-                                        {
-                                            Map<String,Object> map = new HashMap<>();
-                                            txt1.setText(edt1.getText().toString());
-                                            txt2.setText(edt2.getText().toString());
-                                            txt3.setText(""+trophy);
-                                            userDAO.setNameByID(edt1.getText().toString(),id); // set dữ liệu vào data
-                                            userDAO.setDobByID(edt2.getText().toString(),id);// set dob vào data
-                                            map.put("name",edt1.getText().toString());// gui len firebase
-                                            map.put("dob",edt2.getText().toString());// gui len firebase
-                                            data_controll.updateStringData(map,id);// chap nhan gui
-                                            Toast.makeText(context,"Cập nhật thông tin thành công",Toast.LENGTH_SHORT).show();
-
-                                        }
-                                        ImageButton butx = dialog.findViewById(R.id.xBut);
-                                        xButOut(butx,dialog);
-                                    }
-                                });
-                                b.create().show();// show dialog
-                            }
-                        });
-                    }
-                });
-                b.create().show();// show dialog
+                navigate1(context,dialog,id,userDAO);
             }
         });
         // chuyển qua view đổi mật khẩu
@@ -189,6 +104,7 @@ public class SettingDialog {
             @Override
             public void onClick(View view) {
                 dialog.setContentView(R.layout.change_pass);
+                Button back = dialog.findViewById(R.id.backBut);
                 TextView txtname = dialog.findViewById(R.id.profile_uname);
                 TextView txtdob = dialog.findViewById(R.id.txtdob);
                 EditText edt1 = dialog.findViewById(R.id.oldpass);
@@ -206,6 +122,12 @@ public class SettingDialog {
                     @Override
                     public void onClick(View view) {
                         change_pass(view.getContext(),til1,til2,til3,edt1,edt2,edt3,dialog,id);
+                    }
+                });
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        user_setting(dialog,context,id);
                     }
                 });
 
@@ -350,5 +272,110 @@ public class SettingDialog {
             }
         }
 
+    }
+    public void navigate1(Context context, Dialog dialog,int id,UserDAO userDAO)
+    {
+        // su kien alert dialog
+        AlertDialog.Builder b = new AlertDialog.Builder(context);
+        b.setTitle("Chỉnh sửa thông tin");
+        b.setIcon(R.drawable.log_out);
+        b.setMessage("Bạn muốn chỉnh sửa thông tin cá nhân ?");
+        b.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel(); // huy dialog
+            }
+        });
+        b.setNegativeButton("Đồng ý", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialog.setContentView(R.layout.fix_user_profile);
+                EditText tx1,tx2;
+                TextView tx3;
+                tx1 = dialog.findViewById(R.id.edtprofile_uname);
+                tx2 = dialog.findViewById(R.id.edtdob);
+                tx3 = dialog.findViewById(R.id.txttrophy);
+                tx1.setText(name);
+                tx2.setText(dob);
+                tx3.setText(""+trophy);
+                ImageButton butx = dialog.findViewById(R.id.xBut);
+                Button done = dialog.findViewById(R.id.fix_done);
+                Button back = dialog.findViewById(R.id.fix_fail);
+                xButOut(butx,dialog);
+                // chấp nhận chỉnh sửa thông tin xong
+                done.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // su kien alert dialog
+                        AlertDialog.Builder b = new AlertDialog.Builder(context);
+                        b.setTitle("Hoàn tất");
+                        b.setIcon(R.drawable.log_out);
+                        b.setMessage("Hoàn tất cập nhật thông tin?");
+                        b.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel(); // huy dialog
+                                user_setting(dialog,context,id);
+                            }
+                        });
+                        // đồng ý chỉnh sửa thì gửi data đi
+                        b.setNegativeButton("Đồng ý", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                navigate2(context,dialog,id,userDAO);
+                                user_setting(dialog,context,id);
+                            }
+                        });
+                        b.create().show();// show dialog
+                    }
+                });
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        user_setting(dialog,context,id);
+                    }
+                });
+            }
+        });
+        b.create().show();// show dialog
+    }
+    /*
+    func này dùng để chuyển tiếp qua dialog xác nhận cập nhật thông tin
+     */
+    public void navigate2(Context context,Dialog dialog,int id,UserDAO userDAO)
+    {
+        EditText edt1,edt2;
+        edt1 = dialog.findViewById(R.id.edtprofile_uname);
+        edt2 = dialog.findViewById(R.id.edtdob);
+        dialog.setContentView(R.layout.activity_user_interface);
+        TextView txt1,txt2,txt3;
+        txt2 = dialog.findViewById(R.id.txtdob);
+        txt1 = dialog.findViewById(R.id.profile_uname);
+        txt3 = dialog.findViewById(R.id.txttrophy);
+        txt1.setText(name);
+        txt2.setText(dob);
+        boolean check = userDAO.checkname(edt1.getText().toString(),id);
+        if(check == true)
+        {
+            Toast.makeText(context,"Tên này đã có người dùng",Toast.LENGTH_SHORT).show();
+            edt1.setError("Lỗi");
+            dialog.dismiss();
+        }
+        else
+        {
+            Map<String,Object> map = new HashMap<>();
+            txt1.setText(edt1.getText().toString());
+            txt2.setText(edt2.getText().toString());
+            txt3.setText(""+trophy);
+            userDAO.setNameByID(edt1.getText().toString(),id); // set dữ liệu vào data
+            userDAO.setDobByID(edt2.getText().toString(),id);// set dob vào data
+            map.put("name",edt1.getText().toString());// gui len firebase
+            map.put("dob",edt2.getText().toString());// gui len firebase
+            data_controll.updateStringData(map,id);// chap nhan gui
+            Toast.makeText(context,"Cập nhật thông tin thành công",Toast.LENGTH_SHORT).show();
+
+        }
+        ImageButton butx = dialog.findViewById(R.id.xBut);
+        xButOut(butx,dialog);
     }
 }
