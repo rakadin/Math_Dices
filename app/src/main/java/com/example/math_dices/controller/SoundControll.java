@@ -1,8 +1,10 @@
 package com.example.math_dices.controller;
 
 import android.app.Activity;
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,7 @@ public class SoundControll extends AppCompatActivity {
     public MediaPlayer background;
     public MediaPlayer player;
     public MediaPlayer click;
+    public MediaPlayer track;
     protected boolean vali = true;
 
     // pplay intro sound
@@ -92,5 +95,164 @@ public class SoundControll extends AppCompatActivity {
             }
         });
 
+    }
+    // pop sound
+    public void PopSoundFun(Context context, ImageButton onoffBut)
+    {
+        track = MediaPlayer.create(context,R.raw.pop);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    public void PopSoundFun2(Activity main, Button onoffBut)
+    {
+        track = MediaPlayer.create(main,R.raw.pop);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // roll the dice sound
+    public void RollSoundFun(Context context)
+    {
+        track = MediaPlayer.create(context,R.raw.dicerollsound);
+        for (int i = 0 ; i < 50;i++)
+        {
+            track.start();
+        }
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // wrong sound
+    protected void wrongSoundFun(Activity main)
+    {
+
+        track = MediaPlayer.create(main,R.raw.wrong);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // correct sound
+    protected void correctSoundFun(Activity main)
+    {
+        track = MediaPlayer.create(main,R.raw.correct);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // winning sound
+    public void winSoundFun(Activity main)
+    {
+
+        track= MediaPlayer.create(main,R.raw.winning);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // running sound
+    public void runSoundFun(Activity main)
+    {
+        track= MediaPlayer.create(main,R.raw.running);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    protected void runSoundStopFun(Activity main)
+    {
+
+        track= MediaPlayer.create(main,R.raw.running);
+        track.stop();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // go up sound
+    public void upSoundFun(Activity main)
+    {
+        track= MediaPlayer.create(main,R.raw.upstair);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    protected void upSoundStopFun(Activity main)
+    {
+        track= MediaPlayer.create(main,R.raw.upstair);
+        track.stop();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+
+    // falling sound
+    public void fallSoundFun(Activity main)
+    {
+        track= MediaPlayer.create(main,R.raw.fall);
+        track.start();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    protected void fallSoundStopFun(Activity main)
+    {
+        track= MediaPlayer.create(main,R.raw.fall);
+        track.stop();
+        track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
+    // hooray sound
+    public void hooraySoundFun(Activity main)
+    {
+        track= MediaPlayer.create(main,R.raw.hooray);
+        track.start();
+        track   .setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
     }
 }

@@ -23,6 +23,7 @@ import com.example.math_dices.controller.SettingDialog;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.firebase.Send_Data_User;
+import com.example.math_dices.introductions.Slide_introduction;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +35,7 @@ import java.util.Map;
 public class HomePageActivity extends AppCompatActivity {
     int ID;
     ImageButton actionMenuView;
-    ImageButton card_gamebut;
+    ImageButton card_gamebut,slide_game_but;
     ImageButton soundbut;
     SoundControll soundControll = new SoundControll();
     Dialog dialog;// tham số mở pop up view
@@ -53,7 +54,7 @@ public class HomePageActivity extends AppCompatActivity {
         soundbut = findViewById(R.id.SonoffBut);
         card_gamebut = findViewById(R.id.chicken);
         actionMenuView = findViewById(R.id.actionMenuView);
-
+        slide_game_but = findViewById(R.id.slide);
         soundControll.OnOffFun(HomePageActivity.this,soundbut);// chay nhac nen
         Intent intent = getIntent();
         ID = intent.getIntExtra("uID",0);
@@ -69,6 +70,14 @@ public class HomePageActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 //                String cmt = archivementDAO.returnCMT(ID);
+            }
+        });
+        slide_game_but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), Slide_introduction.class);
+                intent.putExtra("uID",ID);
+                startActivity(intent);
             }
         });
         // set sự kiện show pop up menu
