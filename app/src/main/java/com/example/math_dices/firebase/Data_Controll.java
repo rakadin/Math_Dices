@@ -25,7 +25,7 @@ public class Data_Controll {
     private UserDAO userDAO;
     ArchivementDAO archivementDAO;
     final FirebaseDatabase database = FirebaseDatabase.getInstance( "https://mathdice-5f3f6-default-rtdb.asia-southeast1.firebasedatabase.app");
-    public void pushStringData(Map<String,String> map,int id)// đẩy data lên firebase
+    public void pushStringData(Map<String,String> map,int id)// đẩy data lên firebase// add mới
     {
         DatabaseReference myRef2 = database.getReference("User/"+id);
         myRef2.setValue(map);
