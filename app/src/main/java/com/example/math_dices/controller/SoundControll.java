@@ -108,9 +108,9 @@ public class SoundControll extends AppCompatActivity {
             }
         });
     }
-    public void PopSoundFun2(Activity main, Button onoffBut)
+    public void PopSoundFun2(Context context, Button onoffBut)
     {
-        track = MediaPlayer.create(main,R.raw.pop);
+        track = MediaPlayer.create(context,R.raw.pop);
         track.start();
         track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
