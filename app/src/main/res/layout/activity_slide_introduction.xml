@@ -41,6 +41,7 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <Button
+        android:autoSizeTextType="uniform"
         android:id="@+id/nextBut2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -49,7 +50,7 @@
         android:background="@drawable/botron_2"
         android:text="Đã hiểu!"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.1"

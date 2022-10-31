@@ -85,7 +85,7 @@ public class Data_Controll {
                 userDAO.setDobByID(dob,id);
                 userDAO.setNewPassByID(password,id);
                 userDAO.setNameByID(name,id);
-                archivementDAO.setcmtByID(trophy,id);
+                archivementDAO.settrophyByID(trophy,id);
                 archivementDAO.setcmtByID(comment,id);
             }
 

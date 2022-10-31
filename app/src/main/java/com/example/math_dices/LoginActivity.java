@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 //        userDAO.deleteTable();
 //        ar.deleteTable();
         Send_Data_User send = new Send_Data_User();
-        send.getNewIDData(this); // lấy dữ liệu theo thời gian thực
+        send.getNewIDData(this); // lấy dữ liệu theo thời gian thực*/
         /*
         them database
          */
