@@ -187,7 +187,7 @@ public class Slide_game_main extends AppCompatActivity {
                         table[temmove].setImageResource(R.drawable.mario);
                         table[temmove].startAnimation(bounce);
                         soundControl.hooraySoundFun(Slide_game_main.this);
-//                        // set new trophy archivement vào sqlite
+//                       // set new trophy archivement vào sqlite
                         archivementDAO.settrophyByID(String.valueOf(trophy+1),UID);
                         // set new trophy to firebase
                         Map<String, Object> map = new HashMap<>();
