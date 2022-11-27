@@ -179,6 +179,7 @@ public class Slide_game_main extends AppCompatActivity {
                 }
                 if(temmove == 29)
                 {
+                    moveBut.setEnabled(false);// neu ve dich thi khong di chuyen nua
                     table[temmove-diceNumFinal].setImageResource(0);
                     table[temmove].setImageResource(R.drawable.mario2);
                     table[temmove].startAnimation(animation2);
@@ -222,13 +223,6 @@ public class Slide_game_main extends AppCompatActivity {
                             {
 
                                 int previousmove = i -2;
-//                                // release fall sound
-//                                soundControl.run.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-//                                    @Override
-//                                    public void onCompletion(MediaPlayer mediaPlayer) {
-//                                        mediaPlayer.release();
-//                                    }
-//                                });
                                 // when character go to lader -> go up
                                 if(temmove==3)
                                 {
@@ -236,7 +230,7 @@ public class Slide_game_main extends AppCompatActivity {
                                     table[i-1].setImageResource(R.drawable.mario);
 //                                  table[i-1].startAnimation(animation);
                                     table[i-2].setImageResource(0);
-//                                    table[i-1].startAnimation(animation4);
+//                                  table[i-1].startAnimation(animation4);
                                     temmove +=11;
                                     move+=(10);
                                     int sec = 1;
@@ -319,7 +313,7 @@ public class Slide_game_main extends AppCompatActivity {
 //                                    table[i-1].startAnimation(animation4);
                                     temmove -=9;
                                     move-=(9);
-                                    int sec = 4;
+                                    int sec = 2;
                                     int finalTemmove = temmove;
                                     Utils.delay(sec, () -> {
                                         table[previousmove+1].setImageResource(0);
