@@ -15,7 +15,12 @@ import com.example.math_dices.R;
 import com.example.math_dices.controller.GameplayGame1;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.controller.Utils;
+import com.example.math_dices.firebase.Data_Controll;
+import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.winning_activity.Winning_activity_egg;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Egg_Game_main extends AppCompatActivity {
     private int ID;
@@ -59,14 +64,18 @@ public class Egg_Game_main extends AppCompatActivity {
     //    ImageView birdnest[] = {imgEgg1,imgEgg3,imgEgg4,imgEgg5,imgEgg6,imgEgg2};//get id bird nests
     int ImageSwitcherImages[] ={R.drawable.game1_pic1};// create images for img switcher
     int switcherImageLength = ImageSwitcherImages.length;//length get
+    Data_Controll data_controll;
+    ArchivementDAO archivementDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game1_main);
         getSupportActionBar().hide();
+        archivementDAO = new ArchivementDAO(this);
+        data_controll = new Data_Controll();
         Intent intent = getIntent();
         ID = intent.getIntExtra("uID",0); // get ID from previous
-
+        int trophy = ((archivementDAO.returnTrophy(ID))); //lấy cúp theo ID
         imageSwitcher = findViewById(R.id.imgswt);
         homeBut = findViewById(R.id.homeBut);
         onoffBut = findViewById(R.id.SonoffBut);
@@ -123,28 +132,28 @@ public class Egg_Game_main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg1,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         grEgg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg2,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         grEgg3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg3,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         grEgg4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg4,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
 
             }
         });
@@ -152,84 +161,84 @@ public class Egg_Game_main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg5,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         grEgg6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg6,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         grEgg7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,grEgg7,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         redEgg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,redEgg1,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         redEgg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,redEgg2,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         redEgg3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,redEgg3,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         yellowEgg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                gameOn.gameOn(diceNumFinal,imgViews,yellowEgg1,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         yellowEgg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                gameOn.gameOn(diceNumFinal,imgViews,yellowEgg2,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         purEgg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,purEgg1,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         purEgg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,purEgg2,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         blueEgg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,blueEgg1,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
         blueEgg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameOn.gameOn(diceNumFinal,imgViews,blueEgg2,Egg_Game_main.this);
-                winAcOpen();
+                winAcOpen(trophy);
             }
         });
 
@@ -250,12 +259,18 @@ public class Egg_Game_main extends AppCompatActivity {
         soundControl.OnOffFun(Egg_Game_main.this,onoffBut);
     }
     // if eggs get ==6 -> open winning activity
-    protected  void winAcOpen(){
+    protected  void winAcOpen(int trophy){
         if(gameOn.countEggs == 6)
         {
             Intent intent = new Intent();
             intent.setClass(Egg_Game_main.this, Winning_activity_egg.class);
             intent.putExtra("uID",ID);
+            // set new trophy archivement vào sqlite
+            archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
+            // set new trophy to firebase
+            Map<String, Object> map = new HashMap<>();
+            map.put("trophy",String.valueOf(trophy+1));
+            data_controll.updateStringData(map,ID);
             startActivity(intent);
         }
     }

@@ -11,7 +11,6 @@ import com.example.math_dices.HomePageActivity;
 import com.example.math_dices.R;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.game_activity.Egg_Game_main;
-import com.example.math_dices.game_activity.Slide_game_main;
 
 public class Winning_activity_egg extends AppCompatActivity {
     Button replayBut;
