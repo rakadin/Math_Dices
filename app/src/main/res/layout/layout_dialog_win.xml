@@ -36,13 +36,14 @@
 
     <Button
         android:id="@+id/replayBut"
+        android:autoSizeTextType="uniform"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="200dp"
         android:background="@drawable/gradient_game1"
         android:text="Chơi lại"
         android:textColor="#162505"
-        android:textSize="18sp"
+        android:textSize="0sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/menuBut"
@@ -54,13 +55,14 @@
         app:layout_constraintWidth_percent="0.2" />
 
     <Button
+        android:autoSizeTextType="uniform"
         android:id="@+id/menuBut"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/gradient_game1"
         android:text="Về trang chủ"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="0sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
