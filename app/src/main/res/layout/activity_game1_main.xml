@@ -368,49 +368,92 @@
             app:layout_constraintTop_toBottomOf="@+id/dice"
             app:layout_constraintVertical_bias="1.0"
             app:layout_constraintWidth_percent="0.5">
+            <androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/ans1"
-                android:layout_width="60dp"
-                android:layout_height="52dp"
-                android:background="@drawable/birdnest"
-                tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/ans3"
-                android:layout_width="60dp"
-                android:layout_height="52dp"
-                android:background="@drawable/birdnest"
-                tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/ans1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/birdnest"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent="0.166"
+                    tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/ans4"
-                android:layout_width="60dp"
-                android:layout_height="52dp"
-                android:background="@drawable/birdnest"
-                tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/ans3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/birdnest"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/ans1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent="0.166"
+                    tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/ans5"
-                android:layout_width="60dp"
-                android:layout_height="52dp"
-                android:background="@drawable/birdnest"
-                tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/ans4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/birdnest"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/ans3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent="0.166"
+                    tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/ans6"
-                android:layout_width="60dp"
-                android:layout_height="52dp"
-                android:background="@drawable/birdnest"
-                tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/ans5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/birdnest"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/ans4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent="0.166"
+                    tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/ans2"
-                android:layout_width="60dp"
-                android:layout_height="52dp"
-                android:background="@drawable/birdnest"
-                tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/ans6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/birdnest"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/ans5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent="0.166"
+                    tools:ignore="ContentDescription" />
 
+                <ImageView
+                    android:id="@+id/ans2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/birdnest"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ans6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.166"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </TableRow>
 
         <ImageButton
