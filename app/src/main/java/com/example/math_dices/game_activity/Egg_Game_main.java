@@ -14,7 +14,6 @@ public class Egg_Game_main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-
         Intent intent = getIntent();
         ID = intent.getIntExtra("uID",0); // get ID from previous
     }

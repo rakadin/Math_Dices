@@ -14,8 +14,10 @@ buildscript {
     }
 }
 plugins {
-    id 'com.android.application' version '7.3.0' apply false
-    id 'com.android.library' version '7.3.0' apply false
+    id 'com.android.application' version '7.2.1' apply false
+    id 'com.android.library' version '7.2.1' apply false
+//    id 'com.android.application' version '7.3.0' apply true
+//    id 'com.android.library' version '7.3.0' apply false
 }
 //allprojects {
 //    repositories {
@@ -25,6 +27,6 @@ plugins {
 //
 //    }
 //}
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}

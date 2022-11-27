@@ -10,6 +10,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.math_dices.controller.CommentControll;
 import com.example.math_dices.controller.SettingDialog;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.firebase.Data_Controll;
@@ -39,7 +41,8 @@ public class HomePageActivity extends AppCompatActivity {
     ImageButton card_gamebut,slide_game_but,eggGameBut,fishgamebut,chickengamebut;
     ImageButton soundbut;
     SoundControll soundControll = new SoundControll();
-    Dialog dialog;// tham số mở pop up view
+    Dialog dialog,dialogCMt;// tham số mở pop up view
+
 
 
 
@@ -51,6 +54,7 @@ public class HomePageActivity extends AppCompatActivity {
         Send_Data_User send = new Send_Data_User();
         send.getNewIDData(this); // lấy dữ liệu theo thời gian thực
         dialog = new Dialog(this);
+        dialogCMt =  new Dialog(this);
         //get id
         soundbut = findViewById(R.id.SonoffBut);
         card_gamebut = findViewById(R.id.chicken);
@@ -58,10 +62,12 @@ public class HomePageActivity extends AppCompatActivity {
         slide_game_but = findViewById(R.id.slide);
         eggGameBut = findViewById(R.id.eggcatch);
         soundControll.OnOffFun(HomePageActivity.this,soundbut);// chay nhac nen
+        // lấy UID từ hoạt động trước
         Intent intent = getIntent();
         ID = intent.getIntExtra("uID",0);
-
         ArchivementDAO archivementDAO = new ArchivementDAO(this);
+        int trophy = archivementDAO.returnTrophy(ID);// lấy chỉ số cúp hiện tại theo UID
+        String cmt = archivementDAO.returnCMT(ID);
 //        registerForContextMenu(actionMenuView);// gọi view vào menu button
 
         /*
@@ -97,6 +103,12 @@ public class HomePageActivity extends AppCompatActivity {
                 showPopup();
             }
         });
+        // sự kiện hiện hộp chấp nhận đánh giá hay không
+        if( (trophy % 5) == 0 && cmt.trim().equals("") == true && trophy >4)
+        {
+                CommentControll controll = new CommentControll();
+                controll.commentDialog(dialogCMt,this,trophy,ID);
+        }
     }
     // sự kiện pop up menu
     private void showPopup()
