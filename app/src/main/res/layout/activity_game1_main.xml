@@ -84,7 +84,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imgswt"
             app:layout_constraintEnd_toEndOf="@+id/imgswt"
             app:layout_constraintHeight_percent="0.11"
-            app:layout_constraintHorizontal_bias="0.841"
+            app:layout_constraintHorizontal_bias="0.899"
             app:layout_constraintStart_toStartOf="@+id/imgswt"
             app:layout_constraintTop_toTopOf="@+id/imgswt"
             app:layout_constraintVertical_bias="0.128"
@@ -254,10 +254,10 @@
             app:layout_constraintBottom_toBottomOf="@+id/imgswt"
             app:layout_constraintEnd_toEndOf="@+id/imgswt"
             app:layout_constraintHeight_percent="0.11"
-            app:layout_constraintHorizontal_bias="0.809"
+            app:layout_constraintHorizontal_bias="0.896"
             app:layout_constraintStart_toStartOf="@+id/imgswt"
             app:layout_constraintTop_toTopOf="@+id/imgswt"
-            app:layout_constraintVertical_bias="0.666"
+            app:layout_constraintVertical_bias="0.185"
             app:layout_constraintWidth_percent="0.07"
             tools:ignore="MissingConstraints" />
 
