@@ -26,6 +26,7 @@ import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.firebase.Send_Data_User;
 import com.example.math_dices.introductions.Egg_Game_Introduction;
+import com.example.math_dices.introductions.Fish_game_introduction;
 import com.example.math_dices.introductions.Slide_introduction;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
@@ -61,6 +62,7 @@ public class HomePageActivity extends AppCompatActivity {
         actionMenuView = findViewById(R.id.actionMenuView);
         slide_game_but = findViewById(R.id.slide);
         eggGameBut = findViewById(R.id.eggcatch);
+        fishgamebut = findViewById(R.id.fishcatch);
         soundControll.OnOffFun(HomePageActivity.this,soundbut);// chay nhac nen
         // lấy UID từ hoạt động trước
         Intent intent = getIntent();
@@ -92,6 +94,14 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Egg_Game_Introduction.class);
+                intent.putExtra("uID",ID); //gui ID
+                startActivity(intent);
+            }
+        });
+        fishgamebut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), Fish_game_introduction.class);
                 intent.putExtra("uID",ID); //gui ID
                 startActivity(intent);
             }

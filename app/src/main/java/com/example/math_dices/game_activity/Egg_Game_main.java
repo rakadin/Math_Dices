@@ -277,7 +277,7 @@ public class Egg_Game_main extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        soundControl.player.stop();
+        soundControl.player.release();
     }
 
     @Override
@@ -290,5 +290,6 @@ public class Egg_Game_main extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         soundControl.player.stop();
+        soundControl.player.release();
     }
 }

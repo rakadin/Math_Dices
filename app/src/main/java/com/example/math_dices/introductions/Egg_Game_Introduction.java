@@ -43,4 +43,15 @@ public class Egg_Game_Introduction extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        soundControll.player.stop();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        soundControll.player.start();
+    }
 }
