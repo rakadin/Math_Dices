@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 
 import com.example.math_dices.R;
 import com.example.math_dices.controller.SoundControll;
+import com.example.math_dices.game_activity.Fishing_game_main;
 import com.example.math_dices.game_activity.Slide_game_main;
 
 public class Fish_game_introduction extends AppCompatActivity {
@@ -30,13 +31,24 @@ public class Fish_game_introduction extends AppCompatActivity {
         gamefBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                soundControl.PopSoundFun2(Slide_introduction.this,gamefBut);
-//                Intent intent2 = new Intent();
-//                intent2.setClass(Slide_introduction.this , Slide_game_main.class);
-//                intent2.putExtra("uID",UID);
-//                startActivity(intent2);
-//                soundControl.player.pause();
+                soundControl.PopSoundFun2(Fish_game_introduction.this,gamefBut);
+                Intent intent2 = new Intent();
+                intent2.setClass(Fish_game_introduction.this , Fishing_game_main.class);
+                intent2.putExtra("uID",UID);
+                startActivity(intent2);
+                soundControl.player.pause();
             }
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        soundControl.player.stop();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        soundControl.player.start();
     }
 }
