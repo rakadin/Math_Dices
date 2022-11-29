@@ -108,9 +108,9 @@ public class SoundControll extends AppCompatActivity {
             }
         });
     }
-    public void PopSoundFun2(Activity main, Button onoffBut)
+    public void PopSoundFun2(Context context, Button onoffBut)
     {
-        track = MediaPlayer.create(main,R.raw.pop);
+        track = MediaPlayer.create(context,R.raw.pop);
         track.start();
         track.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -135,7 +135,7 @@ public class SoundControll extends AppCompatActivity {
         });
     }
     // wrong sound
-    protected void wrongSoundFun(Activity main)
+    public void wrongSoundFun(Activity main)
     {
 
         track = MediaPlayer.create(main,R.raw.wrong);
@@ -148,7 +148,7 @@ public class SoundControll extends AppCompatActivity {
         });
     }
     // correct sound
-    protected void correctSoundFun(Activity main)
+    public void correctSoundFun(Activity main)
     {
         track = MediaPlayer.create(main,R.raw.correct);
         track.start();

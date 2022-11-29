@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="#f7f7f7">
 
     <TextView
         android:textColor="@color/black"
@@ -39,35 +39,37 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="200dp"
-        android:background="@drawable/gradient_game1"
+        android:autoSizeTextType="uniform"
+        android:background="@drawable/botron_button"
         android:text="Chơi lại"
         android:textColor="#162505"
-        android:textSize="18sp"
+        android:textSize="0sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/menuBut"
         app:layout_constraintHeight_percent="0.09"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.602"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gifImageView4"
-        app:layout_constraintVertical_bias="0.185"
+        app:layout_constraintVertical_bias="0.2"
         app:layout_constraintWidth_percent="0.2" />
 
     <Button
         android:id="@+id/menuBut"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/gradient_game1"
+        android:autoSizeTextType="uniform"
+        android:background="@drawable/botron_button"
         android:text="Về trang chủ"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="0sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.09"
-        app:layout_constraintHorizontal_bias="0.654"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gifImageView4"
-        app:layout_constraintVertical_bias="0.185"
+        app:layout_constraintVertical_bias="0.218"
         app:layout_constraintWidth_percent="0.2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

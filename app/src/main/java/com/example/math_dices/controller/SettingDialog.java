@@ -73,7 +73,6 @@ public class SettingDialog {
     {
         UserDAO userDAO = new UserDAO(context);
         ArchivementDAO archivementDAO = new ArchivementDAO(context);
-
         dialog.setContentView(R.layout.activity_user_interface);
         TextView txtname = dialog.findViewById(R.id.profile_uname);
         TextView txtdob = dialog.findViewById(R.id.txtdob);
