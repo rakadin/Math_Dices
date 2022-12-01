@@ -16,7 +16,12 @@ import com.example.math_dices.R;
 import com.example.math_dices.controller.Chicken_game_control;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.controller.Utils;
+import com.example.math_dices.firebase.Data_Controll;
+import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.winning_activity.Winning_activity_chicken;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Chicken_game_main extends AppCompatActivity {
     Chicken_game_control controller = new Chicken_game_control();
@@ -28,7 +33,8 @@ public class Chicken_game_main extends AppCompatActivity {
     Button moveBut;
     TextView questionT;
     int temmove = 0;
-
+    int ID;
+    int trophy;
     // moves button
     ImageButton move0;
     ImageButton move1;
@@ -69,11 +75,16 @@ public class Chicken_game_main extends AppCompatActivity {
     ImageView get_3;
     ImageView get_4;
     ImageView get_5;
+
+    Data_Controll data_controll;
+    ArchivementDAO archivementDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chicken_game_main);
         getSupportActionBar().hide();
+        archivementDAO = new ArchivementDAO(this);
+        data_controll = new Data_Controll();
         diceBut = findViewById(R.id.dice);
         onoffBut = findViewById(R.id.SonoffBut_game2);
         homeBut = findViewById(R.id.homeBut);
@@ -119,6 +130,10 @@ public class Chicken_game_main extends AppCompatActivity {
         get_3 = findViewById(R.id.get_3);
         get_4 = findViewById(R.id.get_4);
         get_5 = findViewById(R.id.get_5);
+        // get id from previous
+        Intent intent = getIntent();
+        ID = intent.getIntExtra("uID",0); // get ID from previous
+        trophy = ((archivementDAO.returnTrophy(ID))); //lấy cúp theo ID
 
         ImageButton moveButs[]={ move0,move1,move2,move3,move4,move5,move6,move7,move8,move9,move10,move11,move12,move13,move14,move15,move16,move17,move18,move19,move20,move21};
         ImageButton chickens[] = {chick1,chick2,chick3,chick4,chick5,chick6,chick7,chick8,chick9,chick10};
@@ -186,10 +201,17 @@ public class Chicken_game_main extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     controller.checkAns(view.getContext(),temmove,chick_values[temi],Chicken_game_main.this,chickens[temi],gets,temi);
-                    if(controller.get_count == 5)
+                    if(controller.get_count == 5)// bắt được 5 con gà thì thắng -> chuyển activity
                     {
                         Intent intent = new Intent();
                         intent.setClass(view.getContext(), Winning_activity_chicken.class);
+                        intent.putExtra("uID",ID);
+                        // set new trophy archivement vào sqlite
+                        archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
+                        // set new trophy to firebase
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("trophy",String.valueOf(trophy+1));
+                        data_controll.updateStringData(map,ID);
                         startActivity(intent);
                     }
                 }
@@ -204,6 +226,7 @@ public class Chicken_game_main extends AppCompatActivity {
                 soundControl.PopSoundFun(view.getContext(),homeBut);
                 Intent intent = new Intent();
                 intent.setClass(view.getContext(), HomePageActivity.class);
+                intent.putExtra("uID",ID);
                 startActivity(intent);
             }
         });

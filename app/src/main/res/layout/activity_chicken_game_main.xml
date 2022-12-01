@@ -70,12 +70,12 @@
         android:src="@drawable/farm_land"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHeight_percent="0.82"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeBut"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_percent="0.43" />
+        app:layout_constraintWidth_percent="0.4" />
 
     <ImageButton
         android:id="@+id/move_0"
@@ -649,36 +649,37 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHeight_percent="0.20"
-        app:layout_constraintWidth_percent="0.18"
         android:text="Phép tính"
         android:textColor="#E33030"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHeight_percent="0.20"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toEndOf="@+id/textTop1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.177"
+        app:layout_constraintWidth_percent="0.18" />
 
     <TextView
         android:id="@+id/questionText"
-        android:autoSizeTextType="uniform"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp"
+        android:autoSizeTextType="uniform"
         android:background="@drawable/botron_button"
+        android:gravity="center"
         android:textSize="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.20"
-        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toEndOf="@+id/dice"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.017"
+        app:layout_constraintVertical_bias="0.045"
         app:layout_constraintWidth_percent="0.18" />
 
     <Button

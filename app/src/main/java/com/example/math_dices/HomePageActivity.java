@@ -25,6 +25,7 @@ import com.example.math_dices.controller.SettingDialog;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.firebase.Send_Data_User;
+import com.example.math_dices.introductions.Chicken_introdiction;
 import com.example.math_dices.introductions.Egg_Game_Introduction;
 import com.example.math_dices.introductions.Fish_game_introduction;
 import com.example.math_dices.introductions.Slide_introduction;
@@ -58,6 +59,7 @@ public class HomePageActivity extends AppCompatActivity {
         dialogCMt =  new Dialog(this);
         //get id
         soundbut = findViewById(R.id.SonoffBut);
+        chickengamebut = findViewById(R.id.cardch);
         card_gamebut = findViewById(R.id.chicken);
         actionMenuView = findViewById(R.id.actionMenuView);
         slide_game_but = findViewById(R.id.slide);
@@ -102,6 +104,14 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Fish_game_introduction.class);
+                intent.putExtra("uID",ID); //gui ID
+                startActivity(intent);
+            }
+        });
+        chickengamebut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), Chicken_introdiction.class);
                 intent.putExtra("uID",ID); //gui ID
                 startActivity(intent);
             }

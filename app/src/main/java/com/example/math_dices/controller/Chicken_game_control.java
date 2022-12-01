@@ -40,7 +40,7 @@ public class Chicken_game_control extends AppCompatActivity {
                 imgs[move].startAnimation(animation2);
             }
             imgs[previousMove].setImageResource(0);
-            showT.setText(" "+maths[move]);
+            showT.setText(maths[move]);
         }
        else
         {
@@ -55,7 +55,7 @@ public class Chicken_game_control extends AppCompatActivity {
                 imgs[move].startAnimation(animation4);
             }
             imgs[previousMove].setImageResource(0);
-            showT.setText(" "+maths[move]);
+            showT.setText(maths[move]);
         }
     }
     public void checkAns(Context context, int temi, int chick_value, Activity main, ImageButton imgBut, ImageView gets[], int i)

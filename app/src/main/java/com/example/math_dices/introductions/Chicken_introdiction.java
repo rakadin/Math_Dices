@@ -25,6 +25,8 @@ public class Chicken_introdiction extends AppCompatActivity {
         onoffBut = findViewById(R.id.SonoffBut2);
         nextBut = findViewById(R.id.nextBut2);
         soundControll.OnOffFun(Chicken_introdiction.this,onoffBut);
+        Intent intent1 = getIntent();
+        ID = intent1.getIntExtra("uID",0); // get ID from previous
 
         // next game 1 main activity function
         nextBut.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +35,7 @@ public class Chicken_introdiction extends AppCompatActivity {
                 soundControll.PopSoundFun2(view.getContext(),nextBut);
                 Intent intent = new Intent();
                 intent.setClass(view.getContext() , Chicken_game_main.class);
+                intent.putExtra("uID",ID);
                 startActivity(intent);
                 soundControll.player.pause();
             }

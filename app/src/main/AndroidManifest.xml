@@ -17,6 +17,35 @@
         android:theme="@style/Theme.Math_Dices"
         tools:targetApi="31">
         <activity
+            android:name=".game_activity.Card_game_main"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".winning_activity.Winning_activity_card"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".introductions.Card_introduction"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".game_activity.Chicken_game_main"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".winning_activity.Winning_activity_chicken"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".introductions.Chicken_introdiction"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".game_activity.Fishing_game_main"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".winning_activity.Winning_activity_Fish"
             android:exported="false"
