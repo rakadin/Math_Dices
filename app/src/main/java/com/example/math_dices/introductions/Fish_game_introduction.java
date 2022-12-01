@@ -10,48 +10,45 @@ import android.widget.ImageButton;
 
 import com.example.math_dices.R;
 import com.example.math_dices.controller.SoundControll;
-import com.example.math_dices.game_activity.Egg_Game_main;
+import com.example.math_dices.game_activity.Fishing_game_main;
 import com.example.math_dices.game_activity.Slide_game_main;
 
-public class Egg_Game_Introduction extends AppCompatActivity {
-    Button nextBut;
-    int ID;
+public class Fish_game_introduction extends AppCompatActivity {
     ImageButton onoffBut;
-    SoundControll soundControll = new SoundControll();
-
+    SoundControll soundControl = new SoundControll();
+    Button gamefBut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game1);
+        setContentView(R.layout.activity_fishing_introduction);
         getSupportActionBar().hide();
-        onoffBut = findViewById(R.id.SonoffBut);
-        soundControll.OnOffFun(this,onoffBut);
-        nextBut = findViewById(R.id.nextBut);
+        onoffBut = findViewById(R.id.SonoffBut2);
+        gamefBut = findViewById(R.id.nextBut2);
+        soundControl.OnOffFun(this,onoffBut);
         Intent intent = getIntent();
-        ID = intent.getIntExtra("uID",0); // get ID from previous
+        int UID = intent.getIntExtra("uID",0);
         // next game 1 main activity function
-        nextBut.setOnClickListener(new View.OnClickListener() {
+        gamefBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                soundControll.PopSoundFun2(view.getContext(),nextBut);
+                soundControl.PopSoundFun2(Fish_game_introduction.this,gamefBut);
                 Intent intent2 = new Intent();
-                intent2.setClass(view.getContext() , Egg_Game_main.class);
-                intent2.putExtra("uID",ID);
+                intent2.setClass(Fish_game_introduction.this , Fishing_game_main.class);
+                intent2.putExtra("uID",UID);
                 startActivity(intent2);
-                soundControll.player.pause();
+                soundControl.player.pause();
             }
         });
-
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        soundControll.player.stop();
+        soundControl.player.stop();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        soundControll.player.start();
+        soundControl.player.start();
     }
 }

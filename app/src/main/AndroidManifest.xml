@@ -17,47 +17,29 @@
         android:theme="@style/Theme.Math_Dices"
         tools:targetApi="31">
         <activity
-            android:name=".winning_activity.Winning_activity_chicken"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
-            android:name=".game_activity.Chicken_game_main"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".winning_activity.Winning_activity_Fish"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
-            android:name=".introductions.Chicken_introdiction"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".winning_activity.Winning_activity_egg"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".introductions.Egg_Game_Introduction"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".introductions.Fish_game_introduction"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+
+
         <activity
             android:name=".game_activity.Egg_Game_main"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".winning_activity.Winning_activity_egg"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".introductions.Egg_Game_Introduction"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+
         <activity
             android:name=".game_activity.Slide_game_main"
             android:exported="false"
@@ -70,6 +52,8 @@
             android:name=".introductions.Slide_introduction"
             android:exported="false"
             android:screenOrientation="landscape" />
+
+
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
