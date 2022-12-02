@@ -166,16 +166,16 @@
         android:text="00/00/0000"
         android:textColor="#673AB7"
         android:textColorHint="@color/black"
-        android:textSize="12sp"
+        android:textSize="10sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintHeight_percent="0.12"
-        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/view3"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_percent="0.16" />
+        app:layout_constraintWidth_percent="0.15" />
 
     <Button
         android:id="@+id/fix_done"

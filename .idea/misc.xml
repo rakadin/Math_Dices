@@ -15,22 +15,22 @@
         <entry key="..\:/android_projects/app/src/main/res/drawable/gradient_total_back.xml" value="0.2785" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_card_game_introduction.xml" value="0.176" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_card_game_main.xml" value="0.22573749465583584" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_chicken_game_main.xml" value="0.536" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_chicken_game_main.xml" value="0.176" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_fishing_game_main.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_fishing_introduction.xml" value="0.22573749465583584" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_game1_main.xml" value="0.4" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_main.xml" value="0.176" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_slide_game_main.xml" value="0.2" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_slide_game_main.xml" value="0.4" />
         <entry key="..\:/android_projects/app/src/main/res/layout/activity_slide_introduction.xml" value="0.2" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/activity_user_interface.xml" value="0.6" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/activity_user_interface.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/archivement_total.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/change_pass.xml" value="0.4" />
         <entry key="..\:/android_projects/app/src/main/res/layout/comment_accept_dialog.xml" value="0.4" />
         <entry key="..\:/android_projects/app/src/main/res/layout/comment_dialog.xml" value="0.2" />
-        <entry key="..\:/android_projects/app/src/main/res/layout/fix_user_profile.xml" value="0.136" />
+        <entry key="..\:/android_projects/app/src/main/res/layout/fix_user_profile.xml" value="0.536" />
         <entry key="..\:/android_projects/app/src/main/res/layout/layout_dialog_win.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/layout/listview_archivement.xml" value="0.264" />
         <entry key="..\:/android_projects/app/src/main/res/menu/menu_action.xml" value="0.275" />

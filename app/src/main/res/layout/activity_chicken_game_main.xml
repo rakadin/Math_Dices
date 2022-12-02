@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_chicken">
     <TextView
+        android:autoSizeTextType="uniform"
         android:id="@+id/game2_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintHeight_percent="0.109"
-        app:layout_constraintWidth_percent="0.073"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.09"
         android:layout_marginTop="10dp"
         android:text="Bắt gà"
         android:textColor="#000000"
-        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -600,22 +600,22 @@
 
     <TextView
         android:id="@+id/textTop1"
-        android:layout_width="121dp"
-        android:layout_height="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:gravity="center"
         android:text="Xúc xắc nào!"
         android:textColor="@color/black"
-        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.109"
-        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105"
-        app:layout_constraintWidth_percent="0.073"
+        app:layout_constraintVertical_bias="0.076"
+        app:layout_constraintWidth_percent="0.1"
 
         tools:ignore="HardcodedText" />
 
@@ -644,19 +644,20 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
         android:text="Phép tính"
         android:textColor="#E33030"
-        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.20"
-        app:layout_constraintHorizontal_bias="0.612"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.661"
         app:layout_constraintStart_toEndOf="@+id/textTop1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177"
+        app:layout_constraintVertical_bias="0.181"
         app:layout_constraintWidth_percent="0.18" />
 
     <TextView

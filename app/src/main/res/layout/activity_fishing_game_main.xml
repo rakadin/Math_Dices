@@ -8,13 +8,16 @@
 
 
     <TextView
+        android:gravity="center"
         android:id="@+id/game2_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:text="Câu cá"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_percent="0.1"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +109,7 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:padding="20dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/dice_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +118,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textTop1"
         app:layout_constraintVertical_bias="0.037"
-        app:layout_constraintWidth_percent="0.18"
+        app:layout_constraintWidth_percent="0.14"
         tools:ignore="ContentDescription,InvalidId,NotSibling" />
 
     <ImageButton
@@ -127,17 +130,17 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:padding="20dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/dice_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dice"
         app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintHorizontal_bias="0.35"
 
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textTop1"
-        app:layout_constraintVertical_bias="0.034"
-        app:layout_constraintWidth_percent="0.18"
+        app:layout_constraintVertical_bias="0.037"
+        app:layout_constraintWidth_percent="0.14"
 
         tools:ignore="ContentDescription,InvalidId,NotSibling" />
 

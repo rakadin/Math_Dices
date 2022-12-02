@@ -158,18 +158,20 @@
 
     <TextView
         android:id="@+id/txtdob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
         android:text="00/00/0000"
         android:textColor="@color/black"
-        android:textSize="13sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHeight_percent="0.07"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.583" />
+        app:layout_constraintVertical_bias="0.555"
+        app:layout_constraintWidth_percent="0.13" />
 
     <Button
         android:id="@+id/profile_fix"
@@ -181,19 +183,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3"
         app:layout_constraintVertical_bias="0.743"
         app:layout_constraintWidth_percent="0.13" />
 
     <Button
+        android:gravity="center"
+        android:textSize="8sp"
         android:id="@+id/pass_fix"
+        android:textStyle="normal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/botron_2"
         android:text="Đổi mật khẩu"
-        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHeight_percent="0.08"
@@ -201,5 +205,5 @@
         app:layout_constraintStart_toEndOf="@+id/profile_fix"
         app:layout_constraintTop_toBottomOf="@+id/view3"
         app:layout_constraintVertical_bias="0.743"
-        app:layout_constraintWidth_percent="0.13" />
+        app:layout_constraintWidth_percent="0.18" />
 </androidx.constraintlayout.widget.ConstraintLayout>

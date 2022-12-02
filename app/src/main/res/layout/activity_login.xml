@@ -111,15 +111,16 @@
         app:layout_constraintVertical_bias="0.076" />
 
     <Button
+        android:gravity="center_horizontal"
         android:id="@+id/loginbut"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/botron_goc"
         android:text="Đăng nhập"
-        android:textSize="15dp"
+        android:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHeight_percent="0.099"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/forgotpasbut"
@@ -135,10 +136,10 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/loginbut"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.437" />
 
     <TextView
         android:id="@+id/registerbut"
@@ -149,10 +150,10 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/loginbut"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.437" />
 
     <ImageButton
         android:id="@+id/soundbut"

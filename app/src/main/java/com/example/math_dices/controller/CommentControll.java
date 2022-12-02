@@ -23,6 +23,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.HashMap;
 import java.util.Map;
+// có thể bỏ extend đi -> k cần nó
 
 public class CommentControll extends AppCompatActivity {
     public void commentDialog(Dialog dialog, Context context,int trophy, int ID)
