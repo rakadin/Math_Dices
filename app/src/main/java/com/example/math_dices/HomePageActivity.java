@@ -46,9 +46,6 @@ public class HomePageActivity extends AppCompatActivity {
     SoundControll soundControll = new SoundControll();
     Dialog dialog,dialogCMt;// tham số mở pop up view
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,7 +147,6 @@ public class HomePageActivity extends AppCompatActivity {
                         break;
                     case R.id.total:
                     {
-//                       Toast.makeText(context,"id "+ ID,Toast.LENGTH_SHORT).show();
                         settingDialog.total_setting(dialog,context,ID);
                         break;
                     }

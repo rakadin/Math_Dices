@@ -176,17 +176,31 @@ public class Fishing_game_main extends AppCompatActivity {
                         fishSum++;
                         if(fishSum == 5) // bat duoc 5 con ca -> win
                         {
-                            soundControl.PopSoundFun(Fishing_game_main.this,homeBut);
-                            Intent intent = new Intent();
-                            intent.setClass(Fishing_game_main.this, Winning_activity_Fish.class);
-                            intent.putExtra("uID",ID);
-                            // set new trophy archivement vào sqlite
-                            archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
-                            // set new trophy to firebase
-                            Map<String, Object> map = new HashMap<>();
-                            map.put("trophy",String.valueOf(trophy+1));
-                            data_controll.updateStringData(map,ID);
-                            startActivity(intent);
+                            Animation bounce = AnimationUtils.loadAnimation(view.getContext(), R.anim.bounce_animation);
+//                            soundControl.PopSoundFun(Fishing_game_main.this,homeBut);
+                            soundControl.hooraySoundFun(Fishing_game_main.this);
+                            get1.setAnimation(bounce);
+                            get3.setAnimation(bounce);
+                            get5.setAnimation(bounce);
+                            Utils.delay(1, () -> {
+                                get2.setAnimation(bounce);
+                                get4.setAnimation(bounce);
+                            });
+                            Utils.delay(4, () -> {
+                                // set new trophy archivement vào sqlite
+                                archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
+                                // set new trophy to firebase
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("trophy",String.valueOf(trophy+1));
+                                data_controll.updateStringData(map,ID);
+                            });
+                            Utils.delay(10, () -> {
+                                Intent intent = new Intent();
+                                intent.setClass(Fishing_game_main.this, Winning_activity_Fish.class);
+                                intent.putExtra("uID",ID);
+                                startActivity(intent);
+                            });
+
                         }
                     }
                     else

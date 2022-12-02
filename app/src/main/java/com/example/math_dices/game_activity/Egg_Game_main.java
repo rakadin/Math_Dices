@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -262,16 +264,33 @@ public class Egg_Game_main extends AppCompatActivity {
     protected  void winAcOpen(int trophy){
         if(gameOn.countEggs == 6)
         {
-            Intent intent = new Intent();
-            intent.setClass(Egg_Game_main.this, Winning_activity_egg.class);
-            intent.putExtra("uID",ID);
-            // set new trophy archivement vào sqlite
-            archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
-            // set new trophy to firebase
-            Map<String, Object> map = new HashMap<>();
-            map.put("trophy",String.valueOf(trophy+1));
-            data_controll.updateStringData(map,ID);
-            startActivity(intent);
+            Animation bounce = AnimationUtils.loadAnimation(this, R.anim.bounce_animation);
+            soundControl.hooraySoundFun(this);
+            imgEgg1.setAnimation(bounce);
+            imgEgg3.setAnimation(bounce);
+            imgEgg5.setAnimation(bounce);
+            Utils.delay(1, () -> {
+                imgEgg2.setAnimation(bounce);
+                imgEgg4.setAnimation(bounce);
+                imgEgg6.setAnimation(bounce);
+            });
+
+            Utils.delay(4, () -> {
+                // set new trophy archivement vào sqlite
+                archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
+                // set new trophy to firebase
+                Map<String, Object> map = new HashMap<>();
+                map.put("trophy",String.valueOf(trophy+1));
+                data_controll.updateStringData(map,ID);
+            });
+            Utils.delay(10, () -> {
+                Intent intent = new Intent();
+                intent.setClass(Egg_Game_main.this, Winning_activity_egg.class);
+                intent.putExtra("uID",ID);
+                startActivity(intent);
+            });
+
+
         }
     }
     @Override

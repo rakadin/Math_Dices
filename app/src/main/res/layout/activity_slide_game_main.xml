@@ -489,6 +489,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img10" />
 
     <TextView
+        android:gravity="center"
         android:id="@+id/textTop1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -532,6 +533,7 @@
         tools:ignore="ContentDescription,InvalidId,NotSibling" />
 
     <Button
+        android:gravity="center"
         android:id="@+id/startMove"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -577,7 +579,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Câu hỏi"
-        android:textColor="@color/black"
+        android:textColor="#3F51B5"
         android:textSize="0sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -610,6 +612,7 @@
         app:layout_constraintWidth_percent="0.12" />
 
     <TextView
+        android:gravity="center"
         android:id="@+id/tetView9"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -620,7 +623,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toEndOf="@+id/game2_pic_"
         app:layout_constraintTop_toBottomOf="@+id/tetView8"
         app:layout_constraintVertical_bias="0.0"

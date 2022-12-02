@@ -54,11 +54,10 @@ public class Winning_activity_egg extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        soundControl.player.stop();
+
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        soundControl.player.stop();
     }
 }

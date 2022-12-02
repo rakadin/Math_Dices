@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.math_dices.HomePageActivity;
@@ -44,10 +45,13 @@ public class Card_game_main extends AppCompatActivity {
     ImageButton homeBut;
     Data_Controll data_controll;
     ArchivementDAO archivementDAO;
+
+    TextView total;
     private int ID,trophy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_card_game_main);
         getSupportActionBar().hide();
         archivementDAO = new ArchivementDAO(this);
         data_controll = new Data_Controll();
@@ -70,6 +74,7 @@ public class Card_game_main extends AppCompatActivity {
         card10 = findViewById(R.id.card10);
         card11 = findViewById(R.id.card11);
         card12 = findViewById(R.id.card12);
+        total = findViewById(R.id.total);
         // animation
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.card_animation);
         Animation animation2 = AnimationUtils.loadAnimation(this, R.anim.card_animation_wrong);
@@ -120,20 +125,31 @@ public class Card_game_main extends AppCompatActivity {
                         }
                         Toast.makeText(Card_game_main.this,"Đúng rồi !!!",Toast.LENGTH_LONG).show();
                         card_cound++;
+
+                        total.setText("Total: "+card_cound);// hiển thị số thẻ đã đạt được
+
                         // if card count == 6 -> win
                         if(card_cound == 6)
                         {
-                            soundControl.PopSoundFun(view.getContext(),homeBut);
-                            Intent intent = new Intent();
-                            intent.setClass(view.getContext(), Winning_activity_card.class);
-                            intent.putExtra("uID",ID);
-                            // set new trophy archivement vào sqlite
-                            archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
-                            // set new trophy to firebase
-                            Map<String, Object> map = new HashMap<>();
-                            map.put("trophy",String.valueOf(trophy+1));
-                            data_controll.updateStringData(map,ID);
-                            startActivity(intent);
+                            Animation blink = AnimationUtils.loadAnimation(view.getContext(), R.anim.blink_animation);
+                            soundControl.hooraySoundFun(Card_game_main.this);
+                            total.setAnimation(blink);
+                            Utils.delay(4, () -> {
+                                // set new trophy archivement vào sqlite
+                                archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
+                                // set new trophy to firebase
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("trophy",String.valueOf(trophy+1));
+                                data_controll.updateStringData(map,ID);
+                            });
+                            Utils.delay(10, () -> {
+                                Intent intent = new Intent();
+                                intent.setClass(view.getContext(), Winning_activity_card.class);
+                                intent.putExtra("uID",ID);
+                                startActivity(intent);
+                            });
+//                            soundControl.PopSoundFun(view.getContext(),homeBut);
+
                         }
                     }
                     else

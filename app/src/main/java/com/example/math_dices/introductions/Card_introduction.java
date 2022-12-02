@@ -21,10 +21,11 @@ public class Card_introduction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_card_game_introduction);
         getSupportActionBar().hide();
-        onoffBut = findViewById(R.id.SonoffBut);
+        onoffBut = findViewById(R.id.SonoffBut2);
         soundControll.OnOffFun(this,onoffBut);
-        nextBut = findViewById(R.id.nextBut);
+        nextBut = findViewById(R.id.nextBut2);
         Intent intent = getIntent();
         ID = intent.getIntExtra("uID",0); // get ID from previous
         // next game 1 main activity function
@@ -33,7 +34,7 @@ public class Card_introduction extends AppCompatActivity {
             public void onClick(View view) {
                 soundControll.PopSoundFun2(view.getContext(),nextBut);
                 Intent intent2 = new Intent();
-                intent2.setClass(view.getContext() , Card_game_main.class);
+                intent2.setClass(view.getContext() ,Card_game_main.class);
                 intent2.putExtra("uID",ID);
                 startActivity(intent2);
                 soundControll.player.pause();

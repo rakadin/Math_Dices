@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.controller.Utils;
 import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.sqlite.ArchivementDAO;
+import com.example.math_dices.winning_activity.Winning_activity_Slide;
 import com.example.math_dices.winning_activity.Winning_activity_chicken;
 
 import java.util.HashMap;
@@ -200,19 +203,27 @@ public class Chicken_game_main extends AppCompatActivity {
             chickens[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Animation bounce = AnimationUtils.loadAnimation(view.getContext(), R.anim.bounce_animation);
                     controller.checkAns(view.getContext(),temmove,chick_values[temi],Chicken_game_main.this,chickens[temi],gets,temi);
                     if(controller.get_count == 5)// bắt được 5 con gà thì thắng -> chuyển activity
                     {
-                        Intent intent = new Intent();
-                        intent.setClass(view.getContext(), Winning_activity_chicken.class);
-                        intent.putExtra("uID",ID);
-                        // set new trophy archivement vào sqlite
-                        archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
-                        // set new trophy to firebase
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("trophy",String.valueOf(trophy+1));
-                        data_controll.updateStringData(map,ID);
-                        startActivity(intent);
+                        controller.finalMove.setAnimation(bounce);
+                        soundControl.hooraySoundFun(Chicken_game_main.this);
+                        Utils.delay(4, () -> {
+                            // set new trophy archivement vào sqlite
+                            archivementDAO.settrophyByID(String.valueOf(trophy+1),ID);
+                            // set new trophy to firebase
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("trophy",String.valueOf(trophy+1));
+                            data_controll.updateStringData(map,ID);
+                        });
+                        Utils.delay(10, () -> {
+                            Intent intent = new Intent();
+                            intent.setClass(view.getContext(), Winning_activity_chicken.class);
+                            intent.putExtra("uID",ID);
+                            startActivity(intent);
+                        });
+
                     }
                 }
             });

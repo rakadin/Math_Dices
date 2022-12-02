@@ -17,6 +17,11 @@
         android:theme="@style/Theme.Math_Dices"
         tools:targetApi="31">
         <activity
+            android:name=".CommentActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+
+        <activity
             android:name=".game_activity.Card_game_main"
             android:exported="false"
             android:screenOrientation="landscape" />

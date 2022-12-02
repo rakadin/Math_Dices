@@ -14,10 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.math_dices.controller.LoginDialog;
 import com.example.math_dices.controller.SoundControll;
+import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.firebase.Send_Data_User;
+import com.example.math_dices.firebase.User_Firebase;
 import com.example.math_dices.sqlite.ArchivementDAO;
 import com.example.math_dices.sqlite.UserDAO;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
     TextView registerTxt;
@@ -30,13 +34,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        ArrayList<User_Firebase> arr = new ArrayList<>();
+        Data_Controll data_controll = new Data_Controll();
         UserDAO userDAO = new UserDAO(this);
         ArchivementDAO ar = new ArchivementDAO(this);
 //        userDAO.deleteTable();
 //        ar.deleteTable();
         Send_Data_User send = new Send_Data_User();
         send.getNewIDData(this); // lấy dữ liệu theo thời gian thực*/
+        data_controll.getData(arr,this);
         /*
         them database
          */

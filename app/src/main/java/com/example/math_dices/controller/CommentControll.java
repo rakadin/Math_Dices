@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.math_dices.CommentActivity;
 import com.example.math_dices.HomePageActivity;
 import com.example.math_dices.LoginActivity;
@@ -22,10 +24,10 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommentControll {
+public class CommentControll extends AppCompatActivity {
     public void commentDialog(Dialog dialog, Context context,int trophy, int ID)
     {
-        Toast.makeText(context,"trophy in "+trophy,Toast.LENGTH_LONG).show();
+//        Toast.makeText(context,"trophy in "+trophy,Toast.LENGTH_LONG).show();
         // su kien alert dialog
         AlertDialog.Builder b = new AlertDialog.Builder(context);
         b.setIcon(R.drawable.icon_cmt);
