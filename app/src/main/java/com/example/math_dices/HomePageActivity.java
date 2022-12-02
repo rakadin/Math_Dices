@@ -25,6 +25,7 @@ import com.example.math_dices.controller.SettingDialog;
 import com.example.math_dices.controller.SoundControll;
 import com.example.math_dices.firebase.Data_Controll;
 import com.example.math_dices.firebase.Send_Data_User;
+import com.example.math_dices.introductions.Card_introduction;
 import com.example.math_dices.introductions.Chicken_introdiction;
 import com.example.math_dices.introductions.Egg_Game_Introduction;
 import com.example.math_dices.introductions.Fish_game_introduction;
@@ -80,8 +81,9 @@ public class HomePageActivity extends AppCompatActivity {
         card_gamebut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                String cmt = archivementDAO.returnCMT(ID);
+                Intent intent = new Intent(view.getContext(), Card_introduction.class);
+                intent.putExtra("uID",ID); //gui ID
+                startActivity(intent);
             }
         });
         slide_game_but.setOnClickListener(new View.OnClickListener() {
