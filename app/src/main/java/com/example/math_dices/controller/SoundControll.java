@@ -68,10 +68,11 @@ public class SoundControll extends AppCompatActivity {
                 player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
+//                        player.release();
                         mediaPlayer.release();
                     }
                 });
-                player.start();
+                player.isLooping();
             }
         });
 

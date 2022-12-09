@@ -394,16 +394,19 @@ public class Slide_game_main extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        soundControl.player.release();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        soundControl.player.start();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
+        soundControl.player.stop();
+        soundControl.player.release();
     }
 }
